@@ -1,0 +1,6 @@
+framework module Pods_TravelMate {
+  umbrella header "Pods-TravelMate-umbrella.h"
+
+  export *
+  module * { export * }
+}
