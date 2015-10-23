@@ -45,6 +45,8 @@ class LoginView: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewCo
             
             self.logInViewController.signUpController = self.signUpViewController
             
+        } else {
+            
         }
         
     }
