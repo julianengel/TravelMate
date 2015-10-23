@@ -24,21 +24,20 @@ class LoginView: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewCo
         
         if (PFUser.currentUser() == nil) {
             
-//            self.logInViewController.fields = PFLogInFields.UsernameAndPassword | PFLogInFields.LogInButton | PFLogInFields.SignUpButton | PFLogInFields.PasswordForgotten | PFLogInFields.DismissButton
             
             self.logInViewController.fields = [PFLogInFields.UsernameAndPassword,
                 PFLogInFields.LogInButton, PFLogInFields.SignUpButton,
                 PFLogInFields.PasswordForgotten, PFLogInFields.DismissButton]
             
-            var logInLogoTitle = UILabel()
-            logInLogoTitle.text = "Vea Software"
+            let logInLogoTitle = UILabel()
+            logInLogoTitle.text = "Travel Mate"
             
             self.logInViewController.logInView!.logo = logInLogoTitle
             
             self.logInViewController.delegate = self
             
-            var SignUpLogoTitle = UILabel()
-            SignUpLogoTitle.text = "Vea Software"
+            let SignUpLogoTitle = UILabel()
+            SignUpLogoTitle.text = "Travel Mate"
             
             self.signUpViewController.signUpView!.logo = SignUpLogoTitle
             
@@ -83,7 +82,7 @@ class LoginView: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewCo
     }
     func signUpViewController(signUpController: PFSignUpViewController, didFailToSignUpWithError error: NSError?) {
         
-        print("FAiled to sign up...")
+        print("Failed to sign up...")
         
     }
     
@@ -101,15 +100,10 @@ class LoginView: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewCo
         
     }
     
-    @IBAction func customAction(sender: AnyObject) {
-        
-        self.performSegueWithIdentifier("custom", sender: self)
-        
-    }
-    
     @IBAction func logoutAction(sender: AnyObject) {
         
         PFUser.logOut()
+        print("Logged out the PFUser")
         
     }
     
