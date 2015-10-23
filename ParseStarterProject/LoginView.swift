@@ -31,14 +31,14 @@ class LoginView: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewCo
                 PFLogInFields.PasswordForgotten, PFLogInFields.DismissButton]
             
             var logInLogoTitle = UILabel()
-            logInLogoTitle.text = "Vea Software"
+            logInLogoTitle.text = "Travel Mate"
             
             self.logInViewController.logInView!.logo = logInLogoTitle
             
             self.logInViewController.delegate = self
             
             var SignUpLogoTitle = UILabel()
-            SignUpLogoTitle.text = "Vea Software"
+            SignUpLogoTitle.text = "Travel Mate"
             
             self.signUpViewController.signUpView!.logo = SignUpLogoTitle
             
