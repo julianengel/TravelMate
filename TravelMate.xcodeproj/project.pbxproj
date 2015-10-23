@@ -19,6 +19,12 @@
 		81BA81791A49E0DB00E65899 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81781A49E0DB00E65899 /* AudioToolbox.framework */; };
 		81BA817B1A49E0E500E65899 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */; };
 		81BA817F1A49E0F000E65899 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */; };
+		BEB9572A1BDAD64000EC7815 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB957291BDAD64000EC7815 /* BaseViewController.swift */; };
+		BEB9572D1BDAD66A00EC7815 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB9572C1BDAD66A00EC7815 /* NewsVC.swift */; };
+		BEB9572F1BDAD67900EC7815 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB9572E1BDAD67900EC7815 /* SearchVC.swift */; };
+		BEB957311BDAD6C900EC7815 /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB957301BDAD6C900EC7815 /* ListVC.swift */; };
+		BEB957331BDAD6D600EC7815 /* AddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB957321BDAD6D600EC7815 /* AddVC.swift */; };
+		BEB957351BDAD72900EC7815 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB957341BDAD72900EC7815 /* ProfileVC.swift */; };
 		EB8C4AB75C3DF5CD84A44678 /* Pods_TravelMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E33F121D12E29515948E5 /* Pods_TravelMate.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +47,12 @@
 		81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		81BA81801A49E10C00E65899 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		BEB957291BDAD64000EC7815 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = ViewControllers/BaseViewController.swift; sourceTree = "<group>"; };
+		BEB9572C1BDAD66A00EC7815 /* NewsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsVC.swift; path = ViewControllers/NewsVC.swift; sourceTree = "<group>"; };
+		BEB9572E1BDAD67900EC7815 /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchVC.swift; path = ViewControllers/SearchVC.swift; sourceTree = "<group>"; };
+		BEB957301BDAD6C900EC7815 /* ListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListVC.swift; path = ViewControllers/ListVC.swift; sourceTree = "<group>"; };
+		BEB957321BDAD6D600EC7815 /* AddVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddVC.swift; path = ViewControllers/AddVC.swift; sourceTree = "<group>"; };
+		BEB957341BDAD72900EC7815 /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileVC.swift; path = ViewControllers/ProfileVC.swift; sourceTree = "<group>"; };
 		DD3E33F121D12E29515948E5 /* Pods_TravelMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6AD0C424A91690A57433EB1 /* Pods-TravelMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMate.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelMate/Pods-TravelMate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +120,7 @@
 				7A20EFD91BDAC7040082061C /* LoginView.swift */,
 				7A20EFDB1BDAC7DE0082061C /* CustomLoginViewController.swift */,
 				814C3AC61B69877600E307BB /* Main.storyboard */,
+				BEB9572B1BDAD64900EC7815 /* ViewControllers */,
 			);
 			path = ParseStarterProject;
 			sourceTree = "<group>";
@@ -135,6 +148,19 @@
 				81BA81761A49E0D500E65899 /* libsqlite3.dylib */,
 			);
 			name = "System Frameworks";
+			sourceTree = "<group>";
+		};
+		BEB9572B1BDAD64900EC7815 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BEB957291BDAD64000EC7815 /* BaseViewController.swift */,
+				BEB9572C1BDAD66A00EC7815 /* NewsVC.swift */,
+				BEB9572E1BDAD67900EC7815 /* SearchVC.swift */,
+				BEB957301BDAD6C900EC7815 /* ListVC.swift */,
+				BEB957321BDAD6D600EC7815 /* AddVC.swift */,
+				BEB957341BDAD72900EC7815 /* ProfileVC.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,10 +299,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEB957351BDAD72900EC7815 /* ProfileVC.swift in Sources */,
+				BEB957331BDAD6D600EC7815 /* AddVC.swift in Sources */,
+				BEB9572A1BDAD64000EC7815 /* BaseViewController.swift in Sources */,
 				7A20EFDA1BDAC7040082061C /* LoginView.swift in Sources */,
 				7A20EFDC1BDAC7DE0082061C /* CustomLoginViewController.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* ViewController.swift in Sources */,
+				BEB957311BDAD6C900EC7815 /* ListVC.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
+				BEB9572D1BDAD66A00EC7815 /* NewsVC.swift in Sources */,
+				BEB9572F1BDAD67900EC7815 /* SearchVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
