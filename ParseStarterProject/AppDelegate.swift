@@ -21,7 +21,9 @@ import Parse
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let beaconManager = BeaconManager()
+    let locationManager = CLLocationManager()
+    
     //--------------------------------------
     // MARK: - UIApplicationDelegate
     //--------------------------------------
@@ -76,19 +78,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         //
-        //  Swift 1.2
-        //
-        //        if application.respondsToSelector("registerUserNotificationSettings:") {
-        //            let userNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound
-        //            let settings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
-        //            application.registerUserNotificationSettings(settings)
-        //            application.registerForRemoteNotifications()
-        //        } else {
-        //            let types = UIRemoteNotificationType.Badge | UIRemoteNotificationType.Alert | UIRemoteNotificationType.Sound
-        //            application.registerForRemoteNotificationTypes(types)
-        //        }
-
-        //
         //  Swift 2.0
         //
         //        if #available(iOS 8.0, *) {
@@ -101,6 +90,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //            application.registerForRemoteNotificationTypes(types)
         //        }
 
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
+        
         return true
     }
 
@@ -156,4 +148,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
     //     return FBAppCall.handleOpenURL(url, sourceApplication:sourceApplication, session:PFFacebookUtils.session())
     // }
+}
+
+extension AppDelegate: BeaconManagerDelegate {
+    func found(beacon: String) {
+        switch beacon {
+            case "1": break
+            case "2": break
+            case "3": break
+            case "4": break
+            case "5": break
+            case "6": break
+        default: break
+        }
+    }
+}
+
+extension AppDelegate: CLLocationManagerDelegate {
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if status == .AuthorizedAlways {
+            if CLLocationManager.isMonitoringAvailableForClass(CLBeaconRegion.self) {
+                if CLLocationManager.isRangingAvailable() {
+                    print("Everything ok")
+                }
+            }
+        }
+    }
 }
