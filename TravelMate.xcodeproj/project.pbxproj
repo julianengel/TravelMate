@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7A20EFDA1BDAC7040082061C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A20EFD91BDAC7040082061C /* LoginView.swift */; };
-		7A20EFDC1BDAC7DE0082061C /* CustomLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A20EFDB1BDAC7DE0082061C /* CustomLoginViewController.swift */; };
 		814C3ACA1B69877600E307BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AC61B69877600E307BB /* Main.storyboard */; };
 		814C3ACB1B69877600E307BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AC81B69877600E307BB /* Images.xcassets */; };
 		81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA814A1A49DA1800E65899 /* AppDelegate.swift */; };
@@ -25,7 +24,6 @@
 /* Begin PBXFileReference section */
 		2C014A623C7ADDD28680748A /* Pods-TravelMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelMate/Pods-TravelMate.debug.xcconfig"; sourceTree = "<group>"; };
 		7A20EFD91BDAC7040082061C /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		7A20EFDB1BDAC7DE0082061C /* CustomLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLoginViewController.swift; sourceTree = "<group>"; };
 		814C3AC71B69877600E307BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		814C3AC81B69877600E307BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		814C3AC91B69877600E307BB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -106,7 +104,6 @@
 				81BA814A1A49DA1800E65899 /* AppDelegate.swift */,
 				81BA814C1A49DA1800E65899 /* ViewController.swift */,
 				7A20EFD91BDAC7040082061C /* LoginView.swift */,
-				7A20EFDB1BDAC7DE0082061C /* CustomLoginViewController.swift */,
 				814C3AC61B69877600E307BB /* Main.storyboard */,
 			);
 			path = ParseStarterProject;
@@ -173,6 +170,7 @@
 				TargetAttributes = {
 					81BA81441A49DA1800E65899 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = SHDX4J36ZF;
 					};
 				};
 			};
@@ -274,7 +272,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A20EFDA1BDAC7040082061C /* LoginView.swift in Sources */,
-				7A20EFDC1BDAC7DE0082061C /* CustomLoginViewController.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* ViewController.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
 			);
@@ -380,6 +377,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -397,6 +395,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
