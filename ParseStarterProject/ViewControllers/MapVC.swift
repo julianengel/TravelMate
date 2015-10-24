@@ -12,7 +12,7 @@ import MBProgressHUD
 
 protocol MapVCDelegate: class {
     //func reverseGeocodingFinishedWith(placemark: CLPlacemark)
-    func gettingLocationFinishedWith(location: CLLocationCoordinate2D)
+    func gettingLocationFinishedWith(location: CLLocationCoordinate2D, andCity: String)
 }
 
 class MapVC: UIViewController {
@@ -25,6 +25,8 @@ class MapVC: UIViewController {
     weak var delegate: MapVCDelegate?
     
     var placemark: CLPlacemark?
+    
+    var city: String?
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -76,7 +78,7 @@ class MapVC: UIViewController {
         loadingNotification.labelText = NSLocalizedString("Loading", comment: "HUD Loading")
         geocoder.reverseGeocodeLocation(currentPickedLocation!, completionHandler: {
             placemarks, error in
-            if error == nil && !placemarks!.isEmpty {
+            if error == nil && !placemarks!.isEmpty && placemarks!.last?.locality != nil {
                 if let placemark = placemarks!.last {
                     self.placemark = placemark
                     MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
@@ -93,8 +95,8 @@ class MapVC: UIViewController {
         dismissViewControllerAnimated(true, completion: nil)
     }
     @IBAction func doneButtonDidClick(sender: AnyObject) {
-        delegate?.gettingLocationFinishedWith(currentPickedLocation!.coordinate)
-      //  performReverseGeocodeLocation()
+        //delegate?.gettingLocationFinishedWith(currentPickedLocation!.coordinate)
+        performReverseGeocodeLocation()
     }
     
     func showCompletionHUDWithText(text: String, positive: Bool) {
@@ -128,6 +130,7 @@ extension MapVC: MKMapViewDelegate {
 
 extension MapVC: MBProgressHUDDelegate {
     func hudWasHidden(hud: MBProgressHUD!) {
-        //self.delegate?.reverseGeocodingFinishedWith(self.placemark!)
+        self.delegate?.gettingLocationFinishedWith(currentPickedLocation!.coordinate, andCity: (placemark?.locality)!)
+//        self.delegate?.reverseGeocodingFinishedWith(self.placemark!)
     }
 }

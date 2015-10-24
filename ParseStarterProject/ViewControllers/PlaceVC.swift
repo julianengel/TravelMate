@@ -14,11 +14,17 @@ class PlaceVC: BaseViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     
+    @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var languageLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
+
+    
     var place: PlaceModel?
     
     var player:AVAudioPlayer!
     
     let networkingManager = NetworkingManager()
+
 
     @IBOutlet weak var playButton: UIButton!
     
@@ -31,6 +37,15 @@ class PlaceVC: BaseViewController {
         if let descriptionText = place?.placeDescription {
             descriptionTextView.text = descriptionText
         }
+        
+        if let type = place?.type {
+            typeLabel.text = Constatnts.setType(type)
+        }
+        
+        if let language = place?.language {
+            languageLabel.text = Constatnts.setLanguage(language)
+        }
+        
         playButton.enabled = false
         
         networkingManager.delegate = self
@@ -67,6 +82,28 @@ class PlaceVC: BaseViewController {
     
     @IBAction func playButtonTouchUp(sender: AnyObject) {
         self.player.play()
+    }
+    
+    func setType(type: Types) -> String {
+        switch type {
+        case .monument:
+            return "Monument"
+        case .landmark:
+            return "Landmark"
+        case .building:
+            return "Building"
+        }
+    }
+    
+    func setLanguage(language: Languages) -> String {
+        switch language {
+        case .polish:
+            return "Polish"
+        case .english:
+            return "English"
+        case .ukrainian:
+            return "Ukrainian"
+        }
     }
 }
 

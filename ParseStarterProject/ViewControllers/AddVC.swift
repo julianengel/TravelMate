@@ -36,6 +36,9 @@ class AddVC: BaseViewController {
     
     var placeModel = PlaceModel()
     
+    @IBOutlet weak var languageButton: UIButton!
+    @IBOutlet weak var typeButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,7 +48,7 @@ class AddVC: BaseViewController {
         askForNotifications()
         checkHeadphones()
         configureTapGesturte()
-        send.enabled = true
+        self.checkIfDataValid()
     }
     
     func updateAudioMeter(timer:NSTimer) {
@@ -337,7 +340,8 @@ class AddVC: BaseViewController {
             print("could not get contents of directory at \(docsDir)")
             print(error.localizedDescription)
         }
-        
+        self.checkIfDataValid()
+
     }
     
     func askForNotifications() {
@@ -413,7 +417,81 @@ class AddVC: BaseViewController {
             print("checking headphones requires a connection to a device")
         }
     }
+ 
+    @IBAction func languageDidClick(sender: AnyObject?) {
+        let alertController = UIAlertController(title: "Choose language", message: "", preferredStyle: .ActionSheet)
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+            self.checkIfDataValid()
+        }
+        
+        alertController.addAction(cancelAction)
+        
+        let polishAction: UIAlertAction = UIAlertAction(title: "Polish", style: .Default) { action -> Void in
+            self.languageButton.titleLabel?.text = "Polish"
+            self.placeModel.language = Languages.polish
+            self.checkIfDataValid()
+        }
+        alertController.addAction(polishAction)
+        
+        let englishAction: UIAlertAction = UIAlertAction(title: "English", style: .Default) { action -> Void in
+            self.languageButton.titleLabel?.text = "English"
+            self.placeModel.language = Languages.english
+            self.checkIfDataValid()
+        }
+        alertController.addAction(englishAction)
+        
+        let ukrainianAction: UIAlertAction = UIAlertAction(title: "Ukrainian", style: .Default) { action -> Void in
+            self.languageButton.titleLabel?.text = "Ukrainian"
+            self.placeModel.language = Languages.ukrainian
+            self.checkIfDataValid()
+        }
+        alertController.addAction(ukrainianAction)
+        
+        //Present the AlertController
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
     
+    @IBAction func typeDidClick(sender: AnyObject?) {
+        let alertController = UIAlertController(title: "Choose type", message: "", preferredStyle: .ActionSheet)
+        
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+            //Just dismiss the action sheet
+            self.checkIfDataValid()
+        }
+        alertController.addAction(cancelAction)
+        
+        let monumentAction: UIAlertAction = UIAlertAction(title: "Monument", style: .Default) { action -> Void in
+            self.typeButton.titleLabel?.text = "Monument"
+            self.placeModel.type = Types.monument
+            self.checkIfDataValid()
+        }
+        alertController.addAction(monumentAction)
+        
+        let buildingAction: UIAlertAction = UIAlertAction(title: "Building", style: .Default) { action -> Void in
+            self.typeButton.titleLabel?.text = "Building"
+            self.placeModel.type = Types.building
+            self.checkIfDataValid()
+        }
+        alertController.addAction(buildingAction)
+        
+        let landmarkAction: UIAlertAction = UIAlertAction(title: "Landmark", style: .Default) { action -> Void in
+            self.typeButton.titleLabel?.text = "Landmark"
+            self.placeModel.type = Types.landmark
+            self.checkIfDataValid()
+        }
+        alertController.addAction(landmarkAction)
+        
+        //Present the AlertController
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func checkIfDataValid() {
+        if (placeModel.type != nil && placeModel.language != nil && placeModel.city != nil && nameTextField.text != "" && descriptionTextView.text != "") {
+            send.enabled = true
+        } else {
+            send.enabled = false
+        }
+    }
 }
 
 // MARK: AVAudioRecorderDelegate
@@ -437,18 +515,10 @@ extension AddVC : AVAudioRecorderDelegate {
             alert.addAction(UIAlertAction(title: "Delete", style: .Default, handler: {action in
                 print("delete was tapped")
                 self.recorder.deleteRecording()
+                self.checkIfDataValid()
             }))
             self.presentViewController(alert, animated:true, completion:nil)
     }
-    
-    func audioRecorderEncodeErrorDidOccur(recorder: AVAudioRecorder,
-        error: NSError?) {
-            
-            if let e = error {
-                print("\(e.localizedDescription)")
-            }
-    }
-    
 }
 
 // MARK: AVAudioPlayerDelegate
@@ -468,23 +538,9 @@ extension AddVC : AVAudioPlayerDelegate {
 }
 
 extension AddVC: MapVCDelegate {
-//    func reverseGeocodingFinishedWith(placemark: CLPlacemark) {
-//        if let city = placemark.locality where placemark.locality?.characters.count > 0 {
-//            cityTextField?.text = city
-//        }
-//        if let postCode = placemark.postalCode where placemark.postalCode?.characters.count > 0 {
-//            postCodeTextField?.text = postCode
-//        }
-//        if let address = placemark.thoroughfare where placemark.thoroughfare?.characters.count > 0 {
-//            streetNameTextField?.text = address
-//        }
-//        if let addressNumber = placemark.subThoroughfare where placemark.subThoroughfare?.characters.count > 0 {
-//            streetNameTextField?.text = (streetNameTextField?.text)! + " " + addressNumber
-//        }
-//        dismissViewControllerAnimated(true, completion: nil)
-//    }
-    func gettingLocationFinishedWith(location: CLLocationCoordinate2D) {
+    func gettingLocationFinishedWith(location: CLLocationCoordinate2D, andCity city: String) {
         placeModel.location = location
+        placeModel.city = city
         dismissViewControllerAnimated(true, completion: nil)
         send.enabled = true
     }

@@ -11,11 +11,18 @@ import CoreLocation
 import MapKit
 
 class PlaceModel: NSObject, MKAnnotation {
+    
     var name = ""
     var placeDescription = ""
     var location: CLLocationCoordinate2D?
     var placeImage: UIImage?
     var audioFileName = ""
+    
+    var type: Types?
+    var language: Languages?
+    var city: String?
+    
+    var rating: Int?
     
     var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2DMake((location?.latitude)!, (location?.longitude)!)
