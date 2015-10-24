@@ -61,6 +61,10 @@ extension ListVC: UITableViewDataSource {
         //cell.selectionStyle = UITableViewCellSelectionStyle.None
         return cell
     }
+    
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 75
+    }
 }
 
 extension ListVC: UITableViewDelegate {
