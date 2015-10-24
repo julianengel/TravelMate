@@ -173,7 +173,7 @@ class MyLogInViewController : PFLogInViewController {
         let imageView = UIImageView(image: image!)
         let width = UIScreen.mainScreen().bounds.size.width / 2
         print(width)
-        imageView.frame = CGRect(x: width, y: 30, width: 200, height: 200)
+        imageView.frame = CGRect(x: width - 100, y: 30, width: 200, height: 200)
         view.addSubview(imageView)
         
     }
