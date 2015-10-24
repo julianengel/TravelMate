@@ -2,4 +2,84 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ParseStarterProject/AppDelegate.swift"
+            timestampString = "467339180.101749"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TravelMate.AppDelegate.window.getter : Swift.Optional&lt;__ObjC.UIWindow&gt;"
+                  moduleName = "TravelMate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/JulianEngel/Desktop/TravelMate/ParseStarterProject/AppDelegate.swift"
+                  timestampString = "467339180.119259"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TravelMate.AppDelegate.window.setter : Swift.Optional&lt;__ObjC.UIWindow&gt;"
+                  moduleName = "TravelMate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/JulianEngel/Desktop/TravelMate/ParseStarterProject/AppDelegate.swift"
+                  timestampString = "467339180.122188"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TravelMate.AppDelegate.window.materializeForSet : Swift.Optional&lt;__ObjC.UIWindow&gt;"
+                  moduleName = "TravelMate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/JulianEngel/Desktop/TravelMate/ParseStarterProject/AppDelegate.swift"
+                  timestampString = "467339180.122379"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TravelMate.AppDelegate.init (TravelMate.AppDelegate.Type)() -&gt; TravelMate.AppDelegate"
+                  moduleName = "TravelMate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/JulianEngel/Desktop/TravelMate/ParseStarterProject/AppDelegate.swift"
+                  timestampString = "467339180.125148"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
