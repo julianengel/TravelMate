@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		7A20EFDA1BDAC7040082061C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A20EFD91BDAC7040082061C /* LoginView.swift */; };
+		7AF28FD61BDB2BDF0068D154 /* FacebookSDKStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7AF28FCD1BDB2BDF0068D154 /* FacebookSDKStrings.bundle */; };
+		7AF28FD71BDB2BDF0068D154 /* FBAudienceNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF28FCE1BDB2BDF0068D154 /* FBAudienceNetwork.framework */; };
+		7AF28FD81BDB2BDF0068D154 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF28FCF1BDB2BDF0068D154 /* FBSDKCoreKit.framework */; };
+		7AF28FD91BDB2BDF0068D154 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF28FD01BDB2BDF0068D154 /* FBSDKLoginKit.framework */; };
+		7AF28FDA1BDB2BDF0068D154 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF28FD11BDB2BDF0068D154 /* FBSDKMessengerShareKit.framework */; };
+		7AF28FDB1BDB2BDF0068D154 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF28FD21BDB2BDF0068D154 /* FBSDKShareKit.framework */; };
+		7AF28FDC1BDB2BDF0068D154 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7AF28FD31BDB2BDF0068D154 /* LICENSE.txt */; };
+		7AF28FDE1BDB2BDF0068D154 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AF28FD51BDB2BDF0068D154 /* ParseFacebookUtilsV4.framework */; };
 		814C3ACB1B69877600E307BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AC81B69877600E307BB /* Images.xcassets */; };
 		81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA814A1A49DA1800E65899 /* AppDelegate.swift */; };
 		81BA814D1A49DA1800E65899 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA814C1A49DA1800E65899 /* ViewController.swift */; };
@@ -41,6 +49,14 @@
 /* Begin PBXFileReference section */
 		2C014A623C7ADDD28680748A /* Pods-TravelMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelMate/Pods-TravelMate.debug.xcconfig"; sourceTree = "<group>"; };
 		7A20EFD91BDAC7040082061C /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		7AF28FCD1BDB2BDF0068D154 /* FacebookSDKStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKStrings.bundle; path = "../../Documents/FacebookSDKs-iOS-20151007-2/FacebookSDKStrings.bundle"; sourceTree = "<group>"; };
+		7AF28FCE1BDB2BDF0068D154 /* FBAudienceNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBAudienceNetwork.framework; path = "../../Documents/FacebookSDKs-iOS-20151007-2/FBAudienceNetwork.framework"; sourceTree = "<group>"; };
+		7AF28FCF1BDB2BDF0068D154 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../Documents/FacebookSDKs-iOS-20151007-2/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
+		7AF28FD01BDB2BDF0068D154 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../Documents/FacebookSDKs-iOS-20151007-2/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		7AF28FD11BDB2BDF0068D154 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKMessengerShareKit.framework; path = "../../Documents/FacebookSDKs-iOS-20151007-2/FBSDKMessengerShareKit.framework"; sourceTree = "<group>"; };
+		7AF28FD21BDB2BDF0068D154 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../../Documents/FacebookSDKs-iOS-20151007-2/FBSDKShareKit.framework"; sourceTree = "<group>"; };
+		7AF28FD31BDB2BDF0068D154 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE.txt; path = "../../Documents/FacebookSDKs-iOS-20151007-2/LICENSE.txt"; sourceTree = "<group>"; };
+		7AF28FD51BDB2BDF0068D154 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtilsV4.framework; path = "../../Documents/FacebookSDKs-iOS-20151007-2/ParseFacebookUtilsV4.framework"; sourceTree = "<group>"; };
 		814C3AC81B69877600E307BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		814C3AC91B69877600E307BB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81BA81451A49DA1800E65899 /* TravelMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,10 +100,16 @@
 			files = (
 				BE5322051BDAEDA700E4FB81 /* MapKit.framework in Frameworks */,
 				BE1397751BDAE44900CAA857 /* AVFoundation.framework in Frameworks */,
+				7AF28FD91BDB2BDF0068D154 /* FBSDKLoginKit.framework in Frameworks */,
 				81BA817F1A49E0F000E65899 /* libstdc++.6.dylib in Frameworks */,
+				7AF28FD81BDB2BDF0068D154 /* FBSDKCoreKit.framework in Frameworks */,
+				7AF28FD71BDB2BDF0068D154 /* FBAudienceNetwork.framework in Frameworks */,
+				7AF28FDA1BDB2BDF0068D154 /* FBSDKMessengerShareKit.framework in Frameworks */,
 				81BA817B1A49E0E500E65899 /* SystemConfiguration.framework in Frameworks */,
 				81BA81791A49E0DB00E65899 /* AudioToolbox.framework in Frameworks */,
+				7AF28FDE1BDB2BDF0068D154 /* ParseFacebookUtilsV4.framework in Frameworks */,
 				81BA81771A49E0D500E65899 /* libsqlite3.dylib in Frameworks */,
+				7AF28FDB1BDB2BDF0068D154 /* FBSDKShareKit.framework in Frameworks */,
 				81BA81711A49DB6800E65899 /* Parse.framework in Frameworks */,
 				81BA81701A49DB6800E65899 /* Bolts.framework in Frameworks */,
 				EB8C4AB75C3DF5CD84A44678 /* Pods_TravelMate.framework in Frameworks */,
@@ -118,6 +140,14 @@
 		81BA813C1A49DA1800E65899 = {
 			isa = PBXGroup;
 			children = (
+				7AF28FCD1BDB2BDF0068D154 /* FacebookSDKStrings.bundle */,
+				7AF28FCE1BDB2BDF0068D154 /* FBAudienceNetwork.framework */,
+				7AF28FCF1BDB2BDF0068D154 /* FBSDKCoreKit.framework */,
+				7AF28FD01BDB2BDF0068D154 /* FBSDKLoginKit.framework */,
+				7AF28FD11BDB2BDF0068D154 /* FBSDKMessengerShareKit.framework */,
+				7AF28FD21BDB2BDF0068D154 /* FBSDKShareKit.framework */,
+				7AF28FD31BDB2BDF0068D154 /* LICENSE.txt */,
+				7AF28FD51BDB2BDF0068D154 /* ParseFacebookUtilsV4.framework */,
 				81BA81471A49DA1800E65899 /* ParseStarterProject */,
 				814C3AC51B69877600E307BB /* Resources */,
 				81BA816A1A49DB5600E65899 /* Frameworks */,
@@ -255,7 +285,7 @@
 				TargetAttributes = {
 					81BA81441A49DA1800E65899 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = WB824S35DS;
+						DevelopmentTeam = SHDX4J36ZF;
 					};
 				};
 			};
@@ -282,7 +312,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AF28FDC1BDB2BDF0068D154 /* LICENSE.txt in Resources */,
 				BE53220A1BDAEFEC00E4FB81 /* LaunchScreen.storyboard in Resources */,
+				7AF28FD61BDB2BDF0068D154 /* FacebookSDKStrings.bundle in Resources */,
 				814C3ACB1B69877600E307BB /* Images.xcassets in Resources */,
 				BE41E4881BDAD9C100A09049 /* Storyboard.storyboard in Resources */,
 				BED576B51BDB07290049B646 /* PlaceTVC.xib in Resources */,
@@ -471,6 +503,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"/Users/JulianEngel/Documents/FacebookSDKs-iOS-20151007-2",
 				);
 				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -492,6 +525,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"/Users/JulianEngel/Documents/FacebookSDKs-iOS-20151007-2",
 				);
 				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

@@ -8,8 +8,9 @@
 */
 
 import UIKit
-
+import ParseFacebookUtilsV4
 import Parse
+
 
 // If you want to use any of the UI components, uncomment this line
 // import ParseUI
@@ -55,6 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Parse.setApplicationId("Us4UivwQoKxsHuJCX38ysFu7UVAUFtBNdRlkl0kx",
             clientKey: "9ankNDZNa8LUlaU0QTy6F3JnX6BxAfyKAJxXMp73")
+        PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
 
         // If you would like all objects to be private by default, remove this line.
         defaultACL.setPublicReadAccess(true)
@@ -112,7 +114,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("ParseStarterProject failed to subscribe to push notifications on the broadcast channel with error = %@.\n", error)
             }
         }
+        
+        let permissions = [String]()
+        PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions) {
+            (user: PFUser?, error: NSError?) -> Void in
+            if let user = user {
+                if user.isNew {
+                    print("User signed up and logged in through Facebook!")
+                } else {
+                    print("User logged in through Facebook!")
+                }
+            } else {
+                print("Uh oh. The user cancelled the Facebook login.")
+            }
+        }
+        
+        
+        
+        
     }
+    
+    
+    // FACEBOOK
+    func application(application: UIApplication,
+        openURL url: NSURL,
+        sourceApplication: String?,
+        annotation: AnyObject?) -> Bool {
+            return FBSDKApplicationDelegate.sharedInstance().application(application,
+                openURL: url,
+                sourceApplication: sourceApplication,
+                annotation: annotation)
+    }
+    
+    
+    //Make sure it isn't already declared in the app delegate (possible redefinition of func error)
+    func applicationDidBecomeActive(application: UIApplication) {
+        FBSDKAppEvents.activateApp()
+    }
+    
+    // FACEBOOK END
 
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
         if error.code == 3010 {

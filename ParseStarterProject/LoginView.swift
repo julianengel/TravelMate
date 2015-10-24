@@ -9,6 +9,7 @@
 import Foundation
 import Parse
 import ParseUI
+import ParseFacebookUtilsV4
 
 let logInSegue = "LogInSegue"
 
@@ -29,7 +30,7 @@ class LoginView: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewCo
             
             self.logInViewController.fields = [PFLogInFields.UsernameAndPassword,
                 PFLogInFields.LogInButton, PFLogInFields.SignUpButton,
-                PFLogInFields.PasswordForgotten, PFLogInFields.DismissButton]
+                PFLogInFields.PasswordForgotten, PFLogInFields.DismissButton, PFLogInFields.Facebook]
             
             let logInLogoTitle = UILabel()
             logInLogoTitle.text = "Travel Mate"
@@ -67,6 +68,17 @@ class LoginView: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewCo
     func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
         
         self.dismissViewControllerAnimated(true, completion: nil)
+        
+        let my_id = FBSDKAccessToken.currentAccessToken().userID
+        print(my_id)
+        let facebookProfileUrl = NSURL(string: "http://graph.facebook.com/\(my_id)/picture?type=large")
+        print(facebookProfileUrl)
+        
+        if let data = NSData(contentsOfURL: facebookProfileUrl!) {
+            let my_image = UIImage(data: data)
+            print(my_image)
+        }
+        
         
     }
     
