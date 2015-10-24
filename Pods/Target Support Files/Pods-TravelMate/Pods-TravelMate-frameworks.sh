@@ -85,13 +85,19 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-TravelMate/Bolts.framework"
+  install_framework "Pods-TravelMate/FBSDKCoreKit.framework"
+  install_framework "Pods-TravelMate/FBSDKLoginKit.framework"
   install_framework "Pods-TravelMate/MBProgressHUD.framework"
   install_framework "Pods-TravelMate/Parse.framework"
+  install_framework "Pods-TravelMate/ParseFacebookUtilsV4.framework"
   install_framework "Pods-TravelMate/ParseUI.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-TravelMate/Bolts.framework"
+  install_framework "Pods-TravelMate/FBSDKCoreKit.framework"
+  install_framework "Pods-TravelMate/FBSDKLoginKit.framework"
   install_framework "Pods-TravelMate/MBProgressHUD.framework"
   install_framework "Pods-TravelMate/Parse.framework"
+  install_framework "Pods-TravelMate/ParseFacebookUtilsV4.framework"
   install_framework "Pods-TravelMate/ParseUI.framework"
 fi

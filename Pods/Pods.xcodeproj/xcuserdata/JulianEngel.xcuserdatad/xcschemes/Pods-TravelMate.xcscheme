@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '662F99F98A72AF5CB38C22C1'
+               BlueprintIdentifier = '3A9FD86B5C309996B8DBCDEE'
                BlueprintName = 'Pods-TravelMate'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_TravelMate.framework'>
