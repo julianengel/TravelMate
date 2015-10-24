@@ -15,4 +15,5 @@ class TabBar: UITabBar {
         
         return sizeThatFits
     }
+    
 }

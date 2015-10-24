@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--TopVC-->
         <scene sceneID="PY4-5E-gQh">
             <objects>
-                <viewController id="S94-7g-EE2" sceneMemberID="viewController">
+                <viewController id="S94-7g-EE2" customClass="TopVC" customModule="TravelMate" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hGh-SS-Ivv"/>
                         <viewControllerLayoutGuide type="bottom" id="OJs-p0-Axl"/>
@@ -32,6 +32,10 @@
                                     <constraint firstAttribute="height" constant="95" id="X0p-xC-ygR"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U9C-vz-1Oa">
+                                <rect key="frame" x="67" y="20" width="240" height="67"/>
+                                <animations/>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -47,6 +51,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="DyD-YU-KnZ"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="topImageView" destination="U9C-vz-1Oa" id="e4f-qw-RW3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X8V-yz-63x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -105,14 +112,29 @@
                     <view key="view" contentMode="scaleToFill" id="nhy-AX-waN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WfM-Jv-ePd">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <animations/>
+                            </mapView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WfM-Jv-ePd" firstAttribute="leading" secondItem="nhy-AX-waN" secondAttribute="leading" id="GMu-6F-6Co"/>
+                            <constraint firstAttribute="trailing" secondItem="WfM-Jv-ePd" secondAttribute="trailing" id="HDR-Oy-Qsc"/>
+                            <constraint firstItem="WfM-Jv-ePd" firstAttribute="top" secondItem="noo-VX-Kd3" secondAttribute="bottom" id="atl-j7-QFZ"/>
+                            <constraint firstItem="VeP-Y1-hRx" firstAttribute="top" secondItem="WfM-Jv-ePd" secondAttribute="bottom" id="ngh-th-9nz"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="news" selectedImage="news" id="UfM-Mx-db8"/>
+                    <tabBarItem key="tabBarItem" title="" image="map" id="UfM-Mx-db8"/>
+                    <connections>
+                        <outlet property="mapView" destination="WfM-Jv-ePd" id="1g7-Hw-lFo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R60-yl-TQh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2618.5" y="-602.5"/>
+            <point key="canvasLocation" x="3376.5" y="-650.5"/>
         </scene>
         <!--SearchVC-->
         <scene sceneID="eQZ-7i-fDK">
@@ -133,14 +155,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="language" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AJF-Q2-W8L">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Language" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AJF-Q2-W8L">
                                 <rect key="frame" x="20" y="197" width="335" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jfj-6Q-Ob0">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Type" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jfj-6Q-Ob0">
                                 <rect key="frame" x="20" y="269" width="335" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -184,6 +206,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aGA-9h-GCb">
+                                <rect key="frame" x="1" y="134" width="375" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="weK-pO-QtM" id="Snc-Dq-kIU"/>
+                                </connections>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Efn-aL-5EW">
                                 <rect key="frame" x="165" y="20" width="45" height="30"/>
                                 <animations/>
@@ -216,11 +247,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a2q-RF-h3g">
-                                <rect key="frame" x="0.0" y="217" width="375" height="127"/>
+                                <rect key="frame" x="0.0" y="172" width="375" height="127"/>
                                 <animations/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JlI-qo-UHw">
-                                <rect key="frame" x="1" y="218" width="375" height="127"/>
+                                <rect key="frame" x="1" y="172" width="375" height="127"/>
                                 <animations/>
                                 <state key="normal" title="add photo"/>
                                 <connections>
@@ -235,19 +266,8 @@
                                     <action selector="removeAll:" destination="weK-pO-QtM" eventType="touchUpInside" id="pd4-pD-wdN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrd-ga-zOs">
-                                <rect key="frame" x="0.0" y="505" width="375" height="30"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.25490196078431371" green="0.75686274509803919" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="send:" destination="weK-pO-QtM" eventType="touchUpInside" id="J4S-AM-Seq"/>
-                                </connections>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Nqx-ng-qHc" userLabel="descriptionTextView">
-                                <rect key="frame" x="1" y="358" width="375" height="123"/>
+                                <rect key="frame" x="1" y="307" width="375" height="62"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
@@ -258,22 +278,24 @@
                                 </connections>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSS-Xy-bst">
-                                <rect key="frame" x="140" y="134" width="97" height="30"/>
+                                <rect key="frame" x="248" y="96" width="97" height="30"/>
                                 <animations/>
                                 <state key="normal" title="locate on map"/>
                                 <connections>
                                     <segue destination="ucs-M3-o7V" kind="presentation" identifier="MapSegue" id="OOX-Qo-29d"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aGA-9h-GCb">
-                                <rect key="frame" x="1" y="161" width="375" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrd-ga-zOs">
+                                <rect key="frame" x="0.0" y="404" width="375" height="30"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <color key="backgroundColor" red="0.26274509800000001" green="0.87058823529999996" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
-                                    <outlet property="delegate" destination="weK-pO-QtM" id="Snc-Dq-kIU"/>
+                                    <action selector="send:" destination="weK-pO-QtM" eventType="touchUpInside" id="J4S-AM-Seq"/>
                                 </connections>
-                            </textField>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -399,7 +421,7 @@
                             <constraint firstItem="KeB-yu-sbX" firstAttribute="top" secondItem="RFQ-Pt-gsB" secondAttribute="bottom" id="wvu-cf-5lG"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="map" id="ES9-Yo-oGe"/>
+                    <tabBarItem key="tabBarItem" title="" image="news" id="ES9-Yo-oGe"/>
                     <connections>
                         <outlet property="tableView" destination="RFQ-Pt-gsB" id="vaT-5I-PRi"/>
                         <segue destination="lln-CE-Kyu" kind="presentation" identifier="PlaceSegue" modalPresentationStyle="currentContext" modalTransitionStyle="crossDissolve" id="No5-9Q-5VA"/>
@@ -407,7 +429,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yqc-Hp-mza" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3426.5" y="1010.5"/>
+            <point key="canvasLocation" x="3426.5" y="1106.5"/>
         </scene>
         <!--PlaceVC-->
         <scene sceneID="LnS-qs-FTj">
@@ -460,22 +482,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rAk-gT-Cew" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4212.5" y="1010.5"/>
+            <point key="canvasLocation" x="4214.5" y="1106.5"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Base Tab Bar Controller-->
         <scene sceneID="rxe-sp-kdb">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="MyI-wm-jZZ" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="MyI-wm-jZZ" customClass="BaseTabBarController" customModule="TravelMate" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="13c-PM-mWn" customClass="TabBar" customModule="TravelMate" customModuleProvider="target">
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="defaultIndex">
+                            <integer key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="YhE-9z-kIN" kind="relationship" relationship="viewControllers" id="OB0-sX-APS"/>
-                        <segue destination="hGG-A2-Mds" kind="relationship" relationship="viewControllers" id="MWJ-Xi-zhl"/>
                         <segue destination="UjO-3U-0gb" kind="relationship" relationship="viewControllers" id="0N8-pm-iii"/>
+                        <segue destination="hGG-A2-Mds" kind="relationship" relationship="viewControllers" id="MWJ-Xi-zhl"/>
+                        <segue destination="YhE-9z-kIN" kind="relationship" relationship="viewControllers" id="OB0-sX-APS"/>
                         <segue destination="weK-pO-QtM" kind="relationship" relationship="viewControllers" id="FDY-WU-byS"/>
                         <segue destination="rTH-5W-Eur" kind="relationship" relationship="viewControllers" id="abU-3r-ZoU"/>
                     </connections>
@@ -511,4 +538,5 @@
         <image name="profile" width="73" height="52"/>
         <image name="search" width="73" height="52"/>
     </resources>
+    <color key="tintColor" red="0.28627450980000002" green="0.3921568627" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -45,6 +45,10 @@ class MapVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        appDelegate.topVC?.topImageView.image = UIImage(named: "recordARout")
+    }
+    
     func congifureLongPress() {
         let longPress = UILongPressGestureRecognizer(target: self, action: "handleLongPress:")
         longPress.minimumPressDuration = 0.3

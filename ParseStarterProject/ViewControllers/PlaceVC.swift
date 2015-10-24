@@ -44,6 +44,9 @@ class PlaceVC: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        appDelegate.topVC?.topImageView.image = UIImage(named: "publishing")
+    }
 
     func setSessionPlayback() {
         let session:AVAudioSession = AVAudioSession.sharedInstance()

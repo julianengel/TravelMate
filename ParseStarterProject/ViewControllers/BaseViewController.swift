@@ -9,11 +9,11 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-    var navBar:UINavigationBar=UINavigationBar()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        //topImageView.image = UIImage(named: "record")
     }
     
     override func didReceiveMemoryWarning() {

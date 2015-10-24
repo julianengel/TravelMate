@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import Parse
 
-class AddVC: UIViewController {
+class AddVC: BaseViewController {
     
     var recorder: AVAudioRecorder!
     
@@ -59,6 +59,9 @@ class AddVC: UIViewController {
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        appDelegate.topVC?.topImageView.image = UIImage(named: "AddVoicePoint")
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -175,6 +178,8 @@ class AddVC: UIViewController {
                 let place = PFObject(className: "Places")
                 place["name"] = placeModel.name
                 place["description"] = placeModel.placeDescription
+                place["latitude"] = placeModel.location?.latitude
+                place["longitude"] = placeModel.location?.longitude
                 place["audioName"] = audioName
                 place.saveInBackground()
                 let audio = PFObject(className: "Audio")

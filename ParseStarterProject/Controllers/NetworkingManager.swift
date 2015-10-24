@@ -29,6 +29,9 @@ class NetworkingManager: NSObject {
                     place.name = element.objectForKey("name") as! String
                     place.placeDescription = element.objectForKey("description") as! String
                     place.audioFileName = element.objectForKey("audioName") as! String
+                    let latitude: Double = element.objectForKey("latitude") as! Double
+                    let longitude: Double = element.objectForKey("longitude") as! Double
+                    place.location = CLLocationCoordinate2DMake(latitude,longitude)
                     array.append(place)
                 }
                 self.delegate?.parsingPlacesCompleted!(array)
