@@ -35,14 +35,19 @@
                                     <constraint firstAttribute="height" constant="95" id="X0p-xC-ygR"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U9C-vz-1Oa">
-                                <rect key="frame" x="67" y="20" width="240" height="67"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U9C-vz-1Oa">
+                                <rect key="frame" x="67" y="14" width="240" height="67"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="4Mc-qf-Xh7"/>
+                                    <constraint firstAttribute="height" constant="67" id="iwE-4A-3dE"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="U9C-vz-1Oa" firstAttribute="centerY" secondItem="aO3-C0-XGY" secondAttribute="centerY" id="5hc-hy-XIL"/>
                             <constraint firstItem="aO3-C0-XGY" firstAttribute="leading" secondItem="ZMl-9D-Vn6" secondAttribute="leading" id="JOb-UP-Zbi"/>
                             <constraint firstItem="jXA-gB-Bzz" firstAttribute="leading" secondItem="ZMl-9D-Vn6" secondAttribute="leading" id="RVq-SB-mAB"/>
                             <constraint firstItem="aO3-C0-XGY" firstAttribute="top" secondItem="ZMl-9D-Vn6" secondAttribute="top" id="XSn-iD-Ir6"/>
@@ -50,6 +55,7 @@
                             <constraint firstAttribute="trailing" secondItem="aO3-C0-XGY" secondAttribute="trailing" id="oYv-LJ-QCX"/>
                             <constraint firstAttribute="trailing" secondItem="jXA-gB-Bzz" secondAttribute="trailing" id="qwt-TZ-VYI"/>
                             <constraint firstItem="jXA-gB-Bzz" firstAttribute="top" secondItem="aO3-C0-XGY" secondAttribute="bottom" id="vvY-kR-E5M"/>
+                            <constraint firstItem="U9C-vz-1Oa" firstAttribute="centerX" secondItem="aO3-C0-XGY" secondAttribute="centerX" id="zoQ-wn-Y0P"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DyD-YU-KnZ"/>
@@ -163,17 +169,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L64-pk-Oa2">
-                                <rect key="frame" x="20" y="120" width="335" height="30"/>
-                                <animations/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpL-em-463">
-                                <rect key="frame" x="20" y="441" width="336" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpL-em-463">
+                                <rect key="frame" x="20" y="440" width="335" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.25490196078431371" green="0.75686274509803919" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="b2x-S4-1He"/>
+                                </constraints>
                                 <state key="normal" title="Search">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -181,33 +183,77 @@
                                     <action selector="performSearch:" destination="hGG-A2-Mds" eventType="touchUpInside" id="55p-Jt-lno"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9s-YR-KZh">
-                                <rect key="frame" x="20" y="306" width="335" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L64-pk-Oa2">
+                                <rect key="frame" x="20" y="120" width="335" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Type">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.24854525860000001" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="typeDidClick:" destination="hGG-A2-Mds" eventType="touchUpInside" id="5D1-jR-h4c"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEm-BK-9qJ">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="0yb-pl-sRd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BEm-BK-9qJ">
                                 <rect key="frame" x="20" y="216" width="335" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Language">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.24854525862068966" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="EQe-Tj-ufO"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Language">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="0.24854525860000001" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="18" name="HelveticaNeue"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
                                 <connections>
                                     <action selector="languageDidClick:" destination="hGG-A2-Mds" eventType="touchUpInside" id="3O6-VC-nS0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q9s-YR-KZh">
+                                <rect key="frame" x="20" y="304" width="335" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="kan-9R-I52"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Type of Attraction">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="0.24854525860000001" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="typeDidClick:" destination="hGG-A2-Mds" eventType="touchUpInside" id="5D1-jR-h4c"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.28627450980000002" green="0.3921568627" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="L64-pk-Oa2" secondAttribute="trailing" constant="20" id="6La-Cg-qzy"/>
+                            <constraint firstItem="L64-pk-Oa2" firstAttribute="leading" secondItem="Chd-Lp-MPa" secondAttribute="leading" constant="20" id="McA-uz-SNM"/>
+                            <constraint firstItem="BEm-BK-9qJ" firstAttribute="leading" secondItem="Chd-Lp-MPa" secondAttribute="leading" constant="20" id="Nuq-ZI-pE2"/>
+                            <constraint firstItem="lpL-em-463" firstAttribute="leading" secondItem="Chd-Lp-MPa" secondAttribute="leading" constant="20" id="RUZ-9u-VfH"/>
+                            <constraint firstItem="Q9s-YR-KZh" firstAttribute="leading" secondItem="Chd-Lp-MPa" secondAttribute="leading" constant="20" id="W7R-oX-Ff2"/>
+                            <constraint firstAttribute="trailing" secondItem="lpL-em-463" secondAttribute="trailing" constant="20" id="aBs-Z4-DG5"/>
+                            <constraint firstAttribute="trailing" secondItem="BEm-BK-9qJ" secondAttribute="trailing" constant="20" id="bGd-0q-ueN"/>
+                            <constraint firstItem="BEm-BK-9qJ" firstAttribute="top" secondItem="L64-pk-Oa2" secondAttribute="bottom" constant="66" id="bQV-rG-YUY"/>
+                            <constraint firstAttribute="trailing" secondItem="Q9s-YR-KZh" secondAttribute="trailing" constant="20" id="dHm-xk-v0Q"/>
+                            <constraint firstItem="T9Z-MN-3Wl" firstAttribute="top" secondItem="lpL-em-463" secondAttribute="bottom" constant="148" id="nCE-w4-yp4"/>
+                            <constraint firstItem="Q9s-YR-KZh" firstAttribute="top" secondItem="BEm-BK-9qJ" secondAttribute="bottom" constant="58" id="q2H-IF-rSG"/>
+                            <constraint firstItem="L64-pk-Oa2" firstAttribute="top" secondItem="J22-vd-iTJ" secondAttribute="bottom" constant="120" id="u15-kg-kLY"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="search" id="ULU-0e-HMi"/>
                     <connections>
@@ -424,7 +470,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8Y-w7-ROA">
                                 <rect key="frame" x="20" y="20" width="335" height="21"/>
                                 <animations/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="x8S-JY-g32"/>
                                 </constraints>
@@ -442,6 +488,34 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlc-Gj-tEv">
+                                <rect key="frame" x="83" y="0.0" width="68" height="30"/>
+                                <animations/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Language"/>
+                                <connections>
+                                    <action selector="languageDidClick:" destination="weK-pO-QtM" eventType="touchUpInside" id="ymw-EG-ZCP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GPs-YQ-tjW">
+                                <rect key="frame" x="289" y="0.0" width="58" height="30"/>
+                                <animations/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Geo Tag"/>
+                                <connections>
+                                    <segue destination="ucs-M3-o7V" kind="presentation" identifier="MapSegue" id="5z7-CT-Eoc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4Z-5K-VYZ">
+                                <rect key="frame" x="200" y="0.0" width="34" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Type">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="typeDidClick:" destination="weK-pO-QtM" eventType="touchUpInside" id="LEc-KV-dEO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.28235294117647058" green="0.39215686274509803" blue="0.48627450980392156" alpha="1" colorSpace="calibratedRGB"/>
@@ -630,7 +704,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SUv-er-pFk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1804.5" y="1759.5"/>
+            <point key="canvasLocation" x="1694.5" y="1759.5"/>
         </scene>
         <!--MapVC-->
         <scene sceneID="BIm-9R-ziK">
@@ -641,27 +715,39 @@
                         <viewControllerLayoutGuide type="bottom" id="35M-Sj-jDP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PZI-W7-4t7">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wuo-2w-lrE">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <animations/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5L2-cc-hZQ">
-                                <rect key="frame" x="0.0" y="527" width="275" height="73"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5L2-cc-hZQ">
+                                <rect key="frame" x="0.0" y="600" width="187.5" height="67"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.94901960780000005" green="0.23921568630000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="cancel"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="k7y-F5-yVh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="cancelButtonDidClick:" destination="ucs-M3-o7V" eventType="touchUpInside" id="ulk-5W-uh1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHm-iL-Qbk">
-                                <rect key="frame" x="275" y="526" width="325" height="74"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHm-iL-Qbk">
+                                <rect key="frame" x="186" y="600" width="188" height="67"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.4823529412" green="0.88235294119999996" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="send"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="d4b-ng-Tqc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="doneButtonDidClick:" destination="ucs-M3-o7V" eventType="touchUpInside" id="eFO-k1-oMt"/>
                                 </connections>
@@ -670,12 +756,20 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="5L2-cc-hZQ" firstAttribute="width" secondItem="JHm-iL-Qbk" secondAttribute="width" id="Bld-nR-VeE"/>
+                            <constraint firstItem="JHm-iL-Qbk" firstAttribute="leading" secondItem="5L2-cc-hZQ" secondAttribute="trailing" id="IK8-ko-nAM"/>
                             <constraint firstItem="wuo-2w-lrE" firstAttribute="leading" secondItem="PZI-W7-4t7" secondAttribute="leading" id="JT2-uV-iK6"/>
+                            <constraint firstAttribute="trailing" secondItem="JHm-iL-Qbk" secondAttribute="trailing" id="Q6R-gI-xHA"/>
+                            <constraint firstItem="JHm-iL-Qbk" firstAttribute="leading" secondItem="5L2-cc-hZQ" secondAttribute="trailing" id="Tbq-A2-x89"/>
+                            <constraint firstItem="5L2-cc-hZQ" firstAttribute="leading" secondItem="PZI-W7-4t7" secondAttribute="leading" id="U2N-a1-arx"/>
                             <constraint firstItem="35M-Sj-jDP" firstAttribute="top" secondItem="wuo-2w-lrE" secondAttribute="bottom" id="a5k-FV-Fv6"/>
+                            <constraint firstItem="35M-Sj-jDP" firstAttribute="top" secondItem="5L2-cc-hZQ" secondAttribute="bottom" id="aM6-BG-GxE"/>
                             <constraint firstItem="wuo-2w-lrE" firstAttribute="top" secondItem="PZI-W7-4t7" secondAttribute="top" id="bRK-s9-wwL"/>
                             <constraint firstAttribute="trailing" secondItem="wuo-2w-lrE" secondAttribute="trailing" id="bfw-EY-KgQ"/>
+                            <constraint firstItem="35M-Sj-jDP" firstAttribute="top" secondItem="JHm-iL-Qbk" secondAttribute="bottom" id="g6G-kk-inb"/>
                         </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="doneButton" destination="JHm-iL-Qbk" id="Hxl-KG-KLS"/>
                         <outlet property="mapView" destination="wuo-2w-lrE" id="NjV-Ff-WeB"/>
@@ -683,7 +777,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I5X-pk-cap" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2467" y="1763"/>
+            <point key="canvasLocation" x="2266.5" y="1759.5"/>
         </scene>
         <!--ProfileVC-->
         <scene sceneID="fBc-YC-Fqi">

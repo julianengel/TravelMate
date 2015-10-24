@@ -427,21 +427,21 @@ class AddVC: BaseViewController {
         alertController.addAction(cancelAction)
         
         let polishAction: UIAlertAction = UIAlertAction(title: "Polish", style: .Default) { action -> Void in
-            self.languageButton.titleLabel?.text = "Polish"
+           // self.languageButton.titleLabel?.text = "Polish"
             self.placeModel.language = Languages.polish
             self.checkIfDataValid()
         }
         alertController.addAction(polishAction)
         
         let englishAction: UIAlertAction = UIAlertAction(title: "English", style: .Default) { action -> Void in
-            self.languageButton.titleLabel?.text = "English"
+           // self.languageButton.titleLabel?.text = "English"
             self.placeModel.language = Languages.english
             self.checkIfDataValid()
         }
         alertController.addAction(englishAction)
         
         let ukrainianAction: UIAlertAction = UIAlertAction(title: "Ukrainian", style: .Default) { action -> Void in
-            self.languageButton.titleLabel?.text = "Ukrainian"
+          //  self.languageButton.titleLabel?.text = "Ukrainian"
             self.placeModel.language = Languages.ukrainian
             self.checkIfDataValid()
         }
@@ -461,21 +461,22 @@ class AddVC: BaseViewController {
         alertController.addAction(cancelAction)
         
         let monumentAction: UIAlertAction = UIAlertAction(title: "Monument", style: .Default) { action -> Void in
-            self.typeButton.titleLabel?.text = "Monument"
+            //self.typeButton.titleLabel?.text = "Monument"
             self.placeModel.type = Types.monument
             self.checkIfDataValid()
         }
         alertController.addAction(monumentAction)
         
         let buildingAction: UIAlertAction = UIAlertAction(title: "Building", style: .Default) { action -> Void in
-            self.typeButton.titleLabel?.text = "Building"
+//            self.typeButton.titleLabel?.text = "Building"
             self.placeModel.type = Types.building
             self.checkIfDataValid()
         }
         alertController.addAction(buildingAction)
         
         let landmarkAction: UIAlertAction = UIAlertAction(title: "Landmark", style: .Default) { action -> Void in
-            self.typeButton.titleLabel?.text = "Landmark"
+//            self.typeButton.titleLabel?.text = "Landmark"l
+            
             self.placeModel.type = Types.landmark
             self.checkIfDataValid()
         }

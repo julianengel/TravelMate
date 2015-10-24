@@ -168,10 +168,12 @@ class MyLogInViewController : PFLogInViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(hue: 207/360, saturation: 40/100, brightness: 48/100, alpha: 1.0)
 
-        let imageName = "yourImage.png"
+        let imageName = "logo.png"
         let image = UIImage(named: imageName)
         let imageView = UIImageView(image: image!)
-        imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
+        let width = UIScreen.mainScreen().bounds.size.width / 2
+        print(width)
+        imageView.frame = CGRect(x: width, y: 30, width: 200, height: 200)
         view.addSubview(imageView)
         
     }
