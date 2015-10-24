@@ -107,6 +107,18 @@ class ProfileVC: BaseViewController {
 
     }
     
+    @IBAction func logOut(sender: AnyObject){
+        
+        PFUser.logOut()
+        print("Logged the user out")
+        
+        let storyboard = UIStoryboard(name: "Storyboard", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("logIn") as! UIViewController
+        self.presentViewController(vc, animated: true, completion: nil)
+        
+        
+    }
+    
     
     func makeProfilePic(image: UIImageView){
         
