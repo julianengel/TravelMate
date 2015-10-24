@@ -11,7 +11,8 @@ import MapKit
 import MBProgressHUD
 
 protocol MapVCDelegate: class {
-    func reverseGeocodingFinishedWith(placemark: CLPlacemark)
+    //func reverseGeocodingFinishedWith(placemark: CLPlacemark)
+    func gettingLocationFinishedWith(location: CLLocationCoordinate2D)
 }
 
 class MapVC: UIViewController {
@@ -88,7 +89,8 @@ class MapVC: UIViewController {
         dismissViewControllerAnimated(true, completion: nil)
     }
     @IBAction func doneButtonDidClick(sender: AnyObject) {
-        performReverseGeocodeLocation()
+        delegate?.gettingLocationFinishedWith(currentPickedLocation!.coordinate)
+      //  performReverseGeocodeLocation()
     }
     
     func showCompletionHUDWithText(text: String, positive: Bool) {
@@ -122,6 +124,6 @@ extension MapVC: MKMapViewDelegate {
 
 extension MapVC: MBProgressHUDDelegate {
     func hudWasHidden(hud: MBProgressHUD!) {
-        self.delegate?.reverseGeocodingFinishedWith(self.placemark!)
+        //self.delegate?.reverseGeocodingFinishedWith(self.placemark!)
     }
 }

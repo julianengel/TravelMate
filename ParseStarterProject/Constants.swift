@@ -9,3 +9,8 @@
 struct CellsIdentifiers {
     static let placeTVC = "PlaceTVC"
 }
+
+struct SeguesIdentifiers {
+    static let mapSegue = "MapSegue"
+    static let placeSegue = "PlaceSegue"
+}

@@ -43,6 +43,8 @@ class AddVC: UIViewController {
         setSessionPlayback()
         askForNotifications()
         checkHeadphones()
+        configureTapGesturte()
+        send.enabled = false
     }
     
     func updateAudioMeter(timer:NSTimer) {
@@ -61,6 +63,25 @@ class AddVC: UIViewController {
         super.didReceiveMemoryWarning()
         recorder = nil
         player = nil
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == SeguesIdentifiers.mapSegue {
+            let controller = segue.destinationViewController as! MapVC
+            controller.delegate = self
+        }
+    }
+    
+    // MARK: TapGestureRecognizer functions
+    
+    func configureTapGesturte() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: "tapGestureHandler:")
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    func tapGestureHandler(tapGesture: UITapGestureRecognizer) {
+        nameTextField.resignFirstResponder()
+        placeDescriptionTextField.resignFirstResponder()
     }
     
     @IBAction func removeAll(sender: AnyObject) {
@@ -148,12 +169,17 @@ class AddVC: UIViewController {
             if soundData != nil {
                 // Do something
                 print("create pffile")
+                let audioName = NSString(format: "%f%f", (placeModel.location?.latitude)!,(placeModel.location?.longitude)!)
                 let pffile = PFFile(data: soundData!)
                 let place = PFObject(className: "Places")
                 place["name"] = placeModel.name
                 place["description"] = placeModel.placeDescription
-                place["audio"] = pffile
+                place["audioName"] = audioName
                 place.saveInBackground()
+                let audio = PFObject(className: "Audio")
+                audio["Name"] = audioName
+                audio["AudioData"] = pffile
+                audio.saveInBackground()
             }
             else {
                 print("error while creating data from record")
@@ -432,6 +458,29 @@ extension AddVC : AVAudioPlayerDelegate {
             print("\(e.localizedDescription)")
         }
         
+    }
+}
+
+extension AddVC: MapVCDelegate {
+//    func reverseGeocodingFinishedWith(placemark: CLPlacemark) {
+//        if let city = placemark.locality where placemark.locality?.characters.count > 0 {
+//            cityTextField?.text = city
+//        }
+//        if let postCode = placemark.postalCode where placemark.postalCode?.characters.count > 0 {
+//            postCodeTextField?.text = postCode
+//        }
+//        if let address = placemark.thoroughfare where placemark.thoroughfare?.characters.count > 0 {
+//            streetNameTextField?.text = address
+//        }
+//        if let addressNumber = placemark.subThoroughfare where placemark.subThoroughfare?.characters.count > 0 {
+//            streetNameTextField?.text = (streetNameTextField?.text)! + " " + addressNumber
+//        }
+//        dismissViewControllerAnimated(true, completion: nil)
+//    }
+    func gettingLocationFinishedWith(location: CLLocationCoordinate2D) {
+        placeModel.location = location
+        dismissViewControllerAnimated(true, completion: nil)
+        send.enabled = true
     }
 }
 

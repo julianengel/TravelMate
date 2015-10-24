@@ -10,6 +10,8 @@ import UIKit
 
 class PlaceTVC: UITableViewCell {
 
+    @IBOutlet weak var nameLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,6 +24,6 @@ class PlaceTVC: UITableViewCell {
     }
     
     func configureCell(place: PlaceModel) {
-        
+        nameLabel.text = place.name
     }
 }
