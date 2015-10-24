@@ -11,8 +11,9 @@ import Parse
 import ParseUI
 import FBSDKCoreKit
 import FBSDKLoginKit
+import ParseFacebookUtilsV4
 
-class LoginView: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, FBSDKLoginButtonDelegate  {
+class LoginView: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate , FBSDKLoginButtonDelegate {
     
     var logInViewController: PFLogInViewController! = PFLogInViewController()
     var signUpViewController: PFSignUpViewController! = PFSignUpViewController()
@@ -26,6 +27,29 @@ class LoginView: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewCo
         else
         {
             print("Logged in..")
+            let accessToken: FBSDKAccessToken = FBSDKAccessToken.currentAccessToken()
+            
+            PFFacebookUtils.logInInBackgroundWithAccessToken(accessToken, block: {
+                (user: PFUser?, error: NSError?) -> Void in
+                if user != nil {
+                    print("User logged in through Facebook!")
+                } else {
+                    print("Uh oh. There was an error logging in.")
+                }
+            })
+            
+            let user = PFUser.currentUser()
+
+            // Link PFUser with FBSDKAccessToken
+            PFFacebookUtils.linkUserInBackground(user!, withAccessToken: accessToken, block: {
+                (succeeded: Bool?, error: NSError?) -> Void in
+                if (succeeded != nil) {
+                    print("Woohoo, the user is linked with Facebook!")
+                }
+            })
+            
+            
+            
         }
         
         var loginButton = FBSDKLoginButton()
@@ -40,6 +64,19 @@ class LoginView: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewCo
         if error == nil
         {
             print("Login complete.")
+            
+            if (FBSDKAccessToken.currentAccessToken() == nil)
+            {
+                print("Not logged in..")
+            }
+            else
+            {
+                print("Logged in..")
+                
+                
+                
+            }
+
 //            self.performSegueWithIdentifier("showNew", sender: self)
         }
         else

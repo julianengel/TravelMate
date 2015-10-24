@@ -10,6 +10,7 @@
 
 import UIKit
 import FBSDKCoreKit
+import ParseFacebookUtilsV4
 
 import Parse
 // If you want to use any of the UI components, uncomment this line
@@ -54,6 +55,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Parse.setApplicationId("Us4UivwQoKxsHuJCX38ysFu7UVAUFtBNdRlkl0kx",
             clientKey: "9ankNDZNa8LUlaU0QTy6F3JnX6BxAfyKAJxXMp73")
+        PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
+        
 
         // If you would like all objects to be private by default, remove this line.
         defaultACL.setPublicReadAccess(true)
@@ -101,14 +104,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //            let types: UIRemoteNotificationType = [.Alert, .Badge, .Sound]
         //            application.registerForRemoteNotificationTypes(types)
         //        }
+        
+        
+//        let accessToken: FBSDKAccessToken = FBSDKAccessToken.currentAccessToken()
+//        
+//        // Log In (create/update currentUser) with FBSDKAccessToken
+//        PFFacebookUtils.logInInBackgroundWithAccessToken(accessToken, block: {
+//            (user: PFUser?, error: NSError?) -> Void in
+//            if user != nil {
+//                print("User logged in through Facebook!")
+//            } else {
+//                print("Uh oh. There was an error logging in.")
+//            }
+//        })
+//        
+//        
+//        //
+//        // or
+//        //
+//        let user = PFUser.currentUser()
+//    
+//        // Link PFUser with FBSDKAccessToken
+//   
+//    
+//        PFFacebookUtils.linkUserInBackground(user!, withAccessToken: accessToken, block: {
+//            (succeeded: Bool?, error: NSError?) -> Void in
+//            if (succeeded != nil) {
+//                print("Woohoo, the user is linked with Facebook!")
+//            }
+//        })
+        
+//        return true
+        
 
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool
-    {
-        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
-    }
+//    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool
+//    {
+//        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+//    }
 
     //--------------------------------------
     // MARK: Push Notifications
