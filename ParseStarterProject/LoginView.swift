@@ -18,7 +18,7 @@ let logInSegue = "LogInSegue"
 class LoginView: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate  {
     
     var logInViewController: MyLogInViewController! = MyLogInViewController()
-    var signUpViewController: PFSignUpViewController! = PFSignUpViewController()
+    var signUpViewController: MySignUpViewController! = MySignUpViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -173,8 +173,25 @@ class MyLogInViewController : PFLogInViewController {
         let imageView = UIImageView(image: image!)
         let width = UIScreen.mainScreen().bounds.size.width / 2
         print(width)
-        imageView.frame = CGRect(x: width - 100, y: 30, width: 200, height: 200)
+        imageView.frame = CGRect(x: width - 100, y: 20, width: 200, height: 200)
         view.addSubview(imageView)
         
     }
 }
+
+class MySignUpViewController : PFSignUpViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = UIColor(hue: 207/360, saturation: 40/100, brightness: 48/100, alpha: 1.0)
+        
+        let imageName = "logo.png"
+        let image = UIImage(named: imageName)
+        let imageView = UIImageView(image: image!)
+        let width = UIScreen.mainScreen().bounds.size.width / 2
+        print(width)
+        imageView.frame = CGRect(x: width - 100, y: 20, width: 200, height: 200)
+        view.addSubview(imageView)
+        
+    }
+}
+
