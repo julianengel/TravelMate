@@ -12,7 +12,7 @@ import AVFoundation
 class PlaceVC: BaseViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionTextView: UITextView!
     
     var place: PlaceModel?
     
@@ -20,11 +20,18 @@ class PlaceVC: BaseViewController {
     
     let networkingManager = NetworkingManager()
 
+    @IBOutlet weak var playButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print(place!.name)
+        if let name = place?.name {
+            nameLabel.text = name
+        }
+        if let descriptionText = place?.placeDescription {
+            descriptionTextView.text = descriptionText
+        }
+        playButton.enabled = false
         
         networkingManager.delegate = self
         networkingManager.downloadAudioForName((place?.audioFileName)!)
@@ -55,27 +62,19 @@ class PlaceVC: BaseViewController {
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func playButtonTouchUp(sender: AnyObject) {
+        self.player.play()
     }
-    */
-
 }
 
 extension PlaceVC: NetworkingManagerDelegate {
     func downloadedDataForAudio(data: NSData) {
         do {
             self.player = try AVAudioPlayer(data: data)
+            self.playButton.enabled = true
         } catch _ {
             self.player = nil
             print("nie udalo się :(")
         }
-        
-        self.player.play()
     }
 }

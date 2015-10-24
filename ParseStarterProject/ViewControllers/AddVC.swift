@@ -21,8 +21,9 @@ class AddVC: UIViewController {
     @IBOutlet var playButton: UIButton!
     @IBOutlet var statusLabel: UILabel!
     
+    @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet var nameTextField: UITextField!
-    @IBOutlet var placeDescriptionTextField: UITextField!
+
     @IBOutlet var addPhotoButton: UIButton!
     
     @IBOutlet var placePhoto: UIImageView!
@@ -81,7 +82,7 @@ class AddVC: UIViewController {
     
     func tapGestureHandler(tapGesture: UITapGestureRecognizer) {
         nameTextField.resignFirstResponder()
-        placeDescriptionTextField.resignFirstResponder()
+        descriptionTextView.resignFirstResponder()
     }
     
     @IBAction func removeAll(sender: AnyObject) {
@@ -150,7 +151,7 @@ class AddVC: UIViewController {
         if let text = nameTextField.text {
             placeModel.name = text
         }
-        if let text = placeDescriptionTextField.text {
+        if let text = descriptionTextView.text {
             placeModel.placeDescription = text
         }
         if let image = placePhoto.image {
