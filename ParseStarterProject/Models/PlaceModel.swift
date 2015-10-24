@@ -8,11 +8,28 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
-class PlaceModel: NSObject {
+class PlaceModel: NSObject, MKAnnotation {
     var name = ""
     var placeDescription = ""
     var location: CLLocationCoordinate2D?
     var placeImage: UIImage?
     var audioFileName = ""
+    
+    var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2DMake((location?.latitude)!, (location?.longitude)!)
+    }
+    
+    var title: String? {
+        if name.isEmpty {
+            return "(No Description)"
+        } else {
+            return name
+        }
+    }
+    
+    var subtitle: String? {
+        return ""
+    }
 }

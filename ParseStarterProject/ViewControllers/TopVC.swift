@@ -1,5 +1,5 @@
 //
-//  CustomViewController.swift
+//  TopVC.swift
 //  TravelMate
 //
 //  Created by Błażej Chwiećko on 24/10/15.
@@ -8,8 +8,10 @@
 
 import UIKit
 
-class CustomViewController: UINavigationController {
+class TopVC: BaseViewController {
 
+    @IBOutlet weak var topImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let beaconManager = BeaconManager()
-    let locationManager = CLLocationManager()
     
+    var topVC: TopVC?
     //--------------------------------------
     // MARK: - UIApplicationDelegate
     //--------------------------------------
@@ -77,6 +77,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
             }
         }
+        
+        topVC = window!.rootViewController as? TopVC
 
         //
         //  Swift 2.0
@@ -90,9 +92,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //            let types: UIRemoteNotificationType = [.Alert, .Badge, .Sound]
         //            application.registerForRemoteNotificationTypes(types)
         //        }
-
-        locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
         
         return true
     }
@@ -201,6 +200,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+extension UIViewController {
+    var appDelegate:AppDelegate {
+        return UIApplication.sharedApplication().delegate as! AppDelegate
+    }
+}
+
 extension AppDelegate: BeaconManagerDelegate {
     func found(beacon: String) {
         switch beacon {
@@ -211,18 +216,6 @@ extension AppDelegate: BeaconManagerDelegate {
             case "5": break
             case "6": break
         default: break
-        }
-    }
-}
-
-extension AppDelegate: CLLocationManagerDelegate {
-    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if status == .AuthorizedAlways {
-            if CLLocationManager.isMonitoringAvailableForClass(CLBeaconRegion.self) {
-                if CLLocationManager.isRangingAvailable() {
-                    print("Everything ok")
-                }
-            }
         }
     }
 }

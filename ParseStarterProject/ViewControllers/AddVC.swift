@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import Parse
 
-class AddVC: UIViewController {
+class AddVC: BaseViewController {
     
     var recorder: AVAudioRecorder!
     
@@ -21,8 +21,9 @@ class AddVC: UIViewController {
     @IBOutlet var playButton: UIButton!
     @IBOutlet var statusLabel: UILabel!
     
+    @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet var nameTextField: UITextField!
-    @IBOutlet var placeDescriptionTextField: UITextField!
+
     @IBOutlet var addPhotoButton: UIButton!
     
     @IBOutlet var placePhoto: UIImageView!
@@ -58,6 +59,9 @@ class AddVC: UIViewController {
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        appDelegate.topVC?.topImageView.image = UIImage(named: "AddVoicePoint")
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -81,7 +85,7 @@ class AddVC: UIViewController {
     
     func tapGestureHandler(tapGesture: UITapGestureRecognizer) {
         nameTextField.resignFirstResponder()
-        placeDescriptionTextField.resignFirstResponder()
+        descriptionTextView.resignFirstResponder()
     }
     
     @IBAction func removeAll(sender: AnyObject) {
@@ -150,7 +154,7 @@ class AddVC: UIViewController {
         if let text = nameTextField.text {
             placeModel.name = text
         }
-        if let text = placeDescriptionTextField.text {
+        if let text = descriptionTextView.text {
             placeModel.placeDescription = text
         }
         if let image = placePhoto.image {
@@ -174,6 +178,8 @@ class AddVC: UIViewController {
                 let place = PFObject(className: "Places")
                 place["name"] = placeModel.name
                 place["description"] = placeModel.placeDescription
+                place["latitude"] = placeModel.location?.latitude
+                place["longitude"] = placeModel.location?.longitude
                 place["audioName"] = audioName
                 place.saveInBackground()
                 let audio = PFObject(className: "Audio")
