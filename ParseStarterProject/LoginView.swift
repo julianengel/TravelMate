@@ -13,10 +13,7 @@ import ParseFacebookUtilsV4
 
 let logInSegue = "LogInSegue"
 
-struct my_user {
-   static var the_name = "String"
-    static var the_image : UIImage!
-}
+
 
 class LoginView: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate  {
     
@@ -55,7 +52,7 @@ class LoginView: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewCo
             self.logInViewController.signUpController = self.signUpViewController
             
         } else {
-//            performSegueWithIdentifier(logInSegue, sender: nil)
+            performSegueWithIdentifier(logInSegue, sender: nil)
         }
         
     }
@@ -85,42 +82,38 @@ class LoginView: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewCo
 //            print(my_image)
 //        }
         
-        getFBUserData()
-        
-        let user = PFObject(className: "Registered")
-        user["facebook"] = PFUser.currentUser()
-        user["name"] = my_user.the_name
-        user["image"] = String(facebookProfileUrl!)
-        
-        user.saveInBackgroundWithBlock({
-            (success: Bool, error: NSError?) -> Void in
-            if (success) {
-                print("YAHOOOOOOOO")
-            } else {
-                // There was a problem, check error.description
-            }
-        })
-        
-
-        
-    }
-    
-    func getFBUserData(){
         if((FBSDKAccessToken.currentAccessToken()) != nil){
             FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "name, email"]).startWithCompletionHandler({ (connection, result, error) -> Void in
                 if (error == nil){
                     let theName = result["name"]
-                    my_user.the_name = theName as! String
+                    let theMail = result["email"]
+                    let user = PFObject(className: "Registered")
                     
+                    user["facebook"] = PFUser.currentUser()
+                    user["name"] = theName
+                    user["email"] = theMail
+                    user["image"] = String(facebookProfileUrl!)
+                    
+                    user.saveInBackgroundWithBlock({
+                        (success: Bool, error: NSError?) -> Void in
+                        if (success) {
+                            print("YAHOOOOOOOO")
+                        } else {
+                            // There was a problem, check error.description
+                        }
+                    })
+
                     
                     
                 }
             })
         }
+
         
         
     }
-    func logInViewController(logInController: PFLogInViewController, didFailToLogInWithError error: NSError?) {
+    
+        func logInViewController(logInController: PFLogInViewController, didFailToLogInWithError error: NSError?) {
         print("Failed to login...")
     }
     
