@@ -17,7 +17,7 @@ let logInSegue = "LogInSegue"
 
 class LoginView: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate  {
     
-    var logInViewController: PFLogInViewController! = PFLogInViewController()
+    var logInViewController: MyLogInViewController! = MyLogInViewController()
     var signUpViewController: PFSignUpViewController! = PFSignUpViewController()
     
     override func viewDidLoad() {
@@ -36,14 +36,14 @@ class LoginView: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewCo
                 PFLogInFields.PasswordForgotten, PFLogInFields.DismissButton, PFLogInFields.Facebook]
             
             let logInLogoTitle = UILabel()
-            logInLogoTitle.text = "Travel Mate"
+            logInLogoTitle.text = ""
             
             self.logInViewController.logInView!.logo = logInLogoTitle
             
             self.logInViewController.delegate = self
             
             let SignUpLogoTitle = UILabel()
-            SignUpLogoTitle.text = "Travel Mate"
+            SignUpLogoTitle.text = ""
             
             self.signUpViewController.signUpView!.logo = SignUpLogoTitle
             
@@ -158,5 +158,21 @@ class LoginView: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewCo
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+}
+
+
+
+class MyLogInViewController : PFLogInViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = UIColor(hue: 207/360, saturation: 40/100, brightness: 48/100, alpha: 1.0)
+
+        let imageName = "yourImage.png"
+        let image = UIImage(named: imageName)
+        let imageView = UIImageView(image: image!)
+        imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
+        view.addSubview(imageView)
+        
     }
 }
