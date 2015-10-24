@@ -5,16 +5,10 @@
 //  Created by Błażej Chwiećko on 23/10/15.
 //  Copyright © 2015 Parse. All rights reserved.
 //
-//
-//  AddVC.swift
-//  SwiftAVFound
-//
-//  Created by Gene De Lisa on 8/11/14.
-//  Copyright (c) 2014 Gene De Lisa. All rights reserved.
-//
 
 import UIKit
 import AVFoundation
+import Parse
 
 class AddVC: UIViewController {
     
@@ -33,6 +27,8 @@ class AddVC: UIViewController {
     
     @IBOutlet var placePhoto: UIImageView!
     
+    @IBOutlet weak var send: UIButton!
+    
     var meterTimer:NSTimer!
     
     var soundFileURL:NSURL?
@@ -47,6 +43,8 @@ class AddVC: UIViewController {
         setSessionPlayback()
         askForNotifications()
         checkHeadphones()
+        configureTapGesturte()
+        send.enabled = false
     }
     
     func updateAudioMeter(timer:NSTimer) {
@@ -57,10 +55,6 @@ class AddVC: UIViewController {
             let s = String(format: "%02d:%02d", min, sec)
             statusLabel.text = s
             recorder.updateMeters()
-            
-            // if you want to draw some graphics...
-            //var apc0 = recorder.averagePowerForChannel(0)
-            //var peak0 = recorder.peakPowerForChannel(0)
         }
     }
     
@@ -71,8 +65,28 @@ class AddVC: UIViewController {
         player = nil
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == SeguesIdentifiers.mapSegue {
+            let controller = segue.destinationViewController as! MapVC
+            controller.delegate = self
+        }
+    }
+    
+    // MARK: TapGestureRecognizer functions
+    
+    func configureTapGesturte() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: "tapGestureHandler:")
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    func tapGestureHandler(tapGesture: UITapGestureRecognizer) {
+        nameTextField.resignFirstResponder()
+        placeDescriptionTextField.resignFirstResponder()
+    }
+    
     @IBAction func removeAll(sender: AnyObject) {
         deleteAllRecordings()
+        self.recordButton.enabled = true
     }
     
     @IBAction func record(sender: UIButton) {
@@ -94,13 +108,11 @@ class AddVC: UIViewController {
             print("pausing")
             recorder.pause()
             recordButton.setTitle("Continue", forState:.Normal)
-            
         } else {
             print("recording")
             recordButton.setTitle("Pause", forState:.Normal)
             playButton.enabled = false
             stopButton.enabled = true
-            //            recorder.record()
             recordWithPermission(false)
         }
     }
@@ -124,12 +136,55 @@ class AddVC: UIViewController {
             print("could not make session inactive")
             print(error.localizedDescription)
         }
-        
-        //recorder = nil
     }
     
     @IBAction func play(sender: UIButton) {
         play()
+    }
+    
+    @IBAction func addPhotot(sender: UIButton) {
+        
+    }
+    
+    @IBAction func send(sender: AnyObject) {
+        if let text = nameTextField.text {
+            placeModel.name = text
+        }
+        if let text = placeDescriptionTextField.text {
+            placeModel.placeDescription = text
+        }
+        if let image = placePhoto.image {
+            placeModel.placeImage = image
+        }
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        let filemanager:NSFileManager = NSFileManager()
+        let files = filemanager.enumeratorAtPath(paths)
+        while let file = files?.nextObject() {
+            print(file)
+                    let documentsDirectory = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+            let soundFileURL = documentsDirectory.URLByAppendingPathComponent(file as! String)
+
+            let soundData = NSData(contentsOfURL: soundFileURL)
+            // .contentsOfFile: soundFileURL options: 0 error: &errorPtr)
+            if soundData != nil {
+                // Do something
+                print("create pffile")
+                let audioName = NSString(format: "%f%f", (placeModel.location?.latitude)!,(placeModel.location?.longitude)!)
+                let pffile = PFFile(data: soundData!)
+                let place = PFObject(className: "Places")
+                place["name"] = placeModel.name
+                place["description"] = placeModel.placeDescription
+                place["audioName"] = audioName
+                place.saveInBackground()
+                let audio = PFObject(className: "Audio")
+                audio["Name"] = audioName
+                audio["AudioData"] = pffile
+                audio.saveInBackground()
+            }
+            else {
+                print("error while creating data from record")
+            }
+        }
     }
     
     func play() {
@@ -153,7 +208,6 @@ class AddVC: UIViewController {
             self.player = nil
             print(error.localizedDescription)
         }
-        
     }
     
     
@@ -306,14 +360,11 @@ class AddVC: UIViewController {
         print("foreground")
     }
     
-    
     func routeChange(notification:NSNotification) {
         print("routeChange \(notification.userInfo)")
         
         if let userInfo = notification.userInfo {
-            //print("userInfo \(userInfo)")
             if let reason = userInfo[AVAudioSessionRouteChangeReasonKey] as? UInt {
-                //print("reason \(reason)")
                 switch AVAudioSessionRouteChangeReason(rawValue: reason)! {
                 case AVAudioSessionRouteChangeReason.NewDeviceAvailable:
                     print("NewDeviceAvailable")
@@ -339,40 +390,9 @@ class AddVC: UIViewController {
                 }
             }
         }
-        
-        // this cast fails. that's why I do that goofy thing above.
-        //        if let reason = userInfo[AVAudioSessionRouteChangeReasonKey] as? AVAudioSessionRouteChangeReason {
-        //        }
-        
-        /*
-        AVAudioSessionRouteChangeReasonUnknown = 0,
-        AVAudioSessionRouteChangeReasonNewDeviceAvailable = 1,
-        AVAudioSessionRouteChangeReasonOldDeviceUnavailable = 2,
-        AVAudioSessionRouteChangeReasonCategoryChange = 3,
-        AVAudioSessionRouteChangeReasonOverride = 4,
-        AVAudioSessionRouteChangeReasonWakeFromSleep = 6,
-        AVAudioSessionRouteChangeReasonNoSuitableRouteForCategory = 7,
-        AVAudioSessionRouteChangeReasonRouteConfigurationChange NS_ENUM_AVAILABLE_IOS(7_0) = 8
-        
-        routeChange Optional([AVAudioSessionRouteChangeReasonKey: 1, AVAudioSessionRouteChangePreviousRouteKey: <AVAudioSessionRouteDescription: 0x17557350,
-        inputs = (
-        "<AVAudioSessionPortDescription: 0x17557760, type = MicrophoneBuiltIn; name = iPhone Microphone; UID = Built-In Microphone; selectedDataSource = Bottom>"
-        );
-        outputs = (
-        "<AVAudioSessionPortDescription: 0x17557f20, type = Speaker; name = Speaker; UID = Built-In Speaker; selectedDataSource = (null)>"
-        )>])
-        routeChange Optional([AVAudioSessionRouteChangeReasonKey: 2, AVAudioSessionRouteChangePreviousRouteKey: <AVAudioSessionRouteDescription: 0x175562f0,
-        inputs = (
-        "<AVAudioSessionPortDescription: 0x1750c560, type = MicrophoneBuiltIn; name = iPhone Microphone; UID = Built-In Microphone; selectedDataSource = Bottom>"
-        );
-        outputs = (
-        "<AVAudioSessionPortDescription: 0x17557de0, type = Headphones; name = Headphones; UID = Wired Headphones; selectedDataSource = (null)>"
-        )>])
-        */
     }
     
     func checkHeadphones() {
-        // check NewDeviceAvailable and OldDeviceUnavailable for them being plugged in/unplugged
         let currentRoute = AVAudioSession.sharedInstance().currentRoute
         if currentRoute.outputs.count > 0 {
             for description in currentRoute.outputs {
@@ -406,6 +426,7 @@ extension AddVC : AVAudioRecorderDelegate {
                 preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "Keep", style: .Default, handler: {action in
                 print("keep was tapped")
+                self.recordButton.enabled = false
             }))
             alert.addAction(UIAlertAction(title: "Delete", style: .Default, handler: {action in
                 print("delete was tapped")
@@ -437,6 +458,29 @@ extension AddVC : AVAudioPlayerDelegate {
             print("\(e.localizedDescription)")
         }
         
+    }
+}
+
+extension AddVC: MapVCDelegate {
+//    func reverseGeocodingFinishedWith(placemark: CLPlacemark) {
+//        if let city = placemark.locality where placemark.locality?.characters.count > 0 {
+//            cityTextField?.text = city
+//        }
+//        if let postCode = placemark.postalCode where placemark.postalCode?.characters.count > 0 {
+//            postCodeTextField?.text = postCode
+//        }
+//        if let address = placemark.thoroughfare where placemark.thoroughfare?.characters.count > 0 {
+//            streetNameTextField?.text = address
+//        }
+//        if let addressNumber = placemark.subThoroughfare where placemark.subThoroughfare?.characters.count > 0 {
+//            streetNameTextField?.text = (streetNameTextField?.text)! + " " + addressNumber
+//        }
+//        dismissViewControllerAnimated(true, completion: nil)
+//    }
+    func gettingLocationFinishedWith(location: CLLocationCoordinate2D) {
+        placeModel.location = location
+        dismissViewControllerAnimated(true, completion: nil)
+        send.enabled = true
     }
 }
 

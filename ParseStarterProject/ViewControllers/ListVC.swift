@@ -10,10 +10,19 @@ import UIKit
 
 class ListVC: BaseViewController {
 
+    var places: [PlaceModel] = []
+    let networkingManager = NetworkingManager()
+    
+    weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        networkingManager.delegate = self
+        networkingManager.downlaodAllPlaces()
+        
+        let cellNib = UINib(nibName: CellsIdentifiers.placeTVC, bundle: nil)
+        tableView!.registerNib(cellNib, forCellReuseIdentifier: CellsIdentifiers.placeTVC)
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,5 +40,41 @@ class ListVC: BaseViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == SeguesIdentifiers.placeSegue {
+            let controller = segue.destinationViewController as! PlaceVC
+            let indexPath = sender as! Int
+            controller.place = places[indexPath]
+        }
+    }
+}
 
+extension ListVC: UITableViewDataSource {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return places.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(CellsIdentifiers.placeTVC , forIndexPath: indexPath) as! PlaceTVC
+        cell.configureCell(places[indexPath.row])
+        //print(places[0].name)
+        //cell.selectionStyle = UITableViewCellSelectionStyle.None
+        return cell
+    }
+}
+
+extension ListVC: UITableViewDelegate {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier(SeguesIdentifiers.placeSegue, sender: indexPath.row)
+    }
+}
+
+extension ListVC: NetworkingManagerDelegate {
+    func parsingPlacesCompleted(array: [PlaceModel]) {
+        places = array
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            self.tableView.reloadData()
+        }
+        //print(places)
+    }
 }
