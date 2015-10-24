@@ -31,8 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        
-        
+        customizeAppearance()
         // Enable storing and querying data from Local Datastore.
         // Remove this line if you don't want to use Local Datastore features or want to use cachePolicy.
         Parse.enableLocalDatastore()
@@ -188,6 +187,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
     //     return FBAppCall.handleOpenURL(url, sourceApplication:sourceApplication, session:PFFacebookUtils.session())
     // }
+    
+    func customizeAppearance() {
+        let customOrangeColor = UIColor(red: 251/255.0, green: 155/255.0, blue: 39/255.0, alpha: 1.0)
+        let customBlueColor = UIColor(red: 73/255.0, green: 100/255.0, blue: 123/255.0, alpha: 1.0)
+        
+        UINavigationBar.appearance().barTintColor = customBlueColor
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        UITabBar.appearance().barTintColor = customOrangeColor
+        
+        //let tintColor = UIColor(red: 255/255.0, green: 238/255.0, blue: 136/255.0, alpha: 1.0)
+        UITabBar.appearance().tintColor = UIColor.whiteColor()
+    }
 }
 
 extension AppDelegate: BeaconManagerDelegate {

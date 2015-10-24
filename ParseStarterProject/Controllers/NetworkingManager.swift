@@ -41,8 +41,11 @@ class NetworkingManager: NSObject {
         queue.whereKey("Name", equalTo: name)
         queue.getFirstObjectInBackgroundWithBlock { (object: PFObject?, error: NSError?) -> Void in
             if error == nil {
-                let data = object?.objectForKey("AudioData") as! NSData
-                self.delegate?.downloadedDataForAudio!(data)
+                let data = object?.objectForKey("AudioData") as! PFFile
+                
+                data.getDataInBackgroundWithBlock({ (audioData, error) -> Void in
+                    self.delegate?.downloadedDataForAudio!(audioData!)
+                })
             }
         }
     }

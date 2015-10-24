@@ -43,6 +43,7 @@
 		BED576B81BDB074A0049B646 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED576B71BDB074A0049B646 /* Constants.swift */; };
 		BED576BA1BDB09290049B646 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED576B91BDB09290049B646 /* NetworkingManager.swift */; };
 		BED576BC1BDB1AE80049B646 /* PlaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED576BB1BDB1AE80049B646 /* PlaceVC.swift */; };
+		BED576BE1BDB2E4A0049B646 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED576BD1BDB2E4A0049B646 /* CustomViewController.swift */; };
 		EB8C4AB75C3DF5CD84A44678 /* Pods_TravelMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E33F121D12E29515948E5 /* Pods_TravelMate.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,7 @@
 		BED576B71BDB074A0049B646 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BED576B91BDB09290049B646 /* NetworkingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkingManager.swift; path = Controllers/NetworkingManager.swift; sourceTree = "<group>"; };
 		BED576BB1BDB1AE80049B646 /* PlaceVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceVC.swift; path = ViewControllers/PlaceVC.swift; sourceTree = "<group>"; };
+		BED576BD1BDB2E4A0049B646 /* CustomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomViewController.swift; path = ViewControllers/CustomViewController.swift; sourceTree = "<group>"; };
 		DD3E33F121D12E29515948E5 /* Pods_TravelMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6AD0C424A91690A57433EB1 /* Pods-TravelMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMate.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelMate/Pods-TravelMate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -177,6 +179,7 @@
 				BE5322081BDAEF1400E4FB81 /* Models */,
 				BED576B61BDB072F0049B646 /* Views */,
 				BED576B71BDB074A0049B646 /* Constants.swift */,
+				BED576BD1BDB2E4A0049B646 /* CustomViewController.swift */,
 			);
 			path = ParseStarterProject;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				7A20EFDA1BDAC7040082061C /* LoginView.swift in Sources */,
 				BE5322031BDAED9700E4FB81 /* MapVC.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* ViewController.swift in Sources */,
+				BED576BE1BDB2E4A0049B646 /* CustomViewController.swift in Sources */,
 				BED576B41BDB07290049B646 /* PlaceTVC.swift in Sources */,
 				BEB957311BDAD6C900EC7815 /* ListVC.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,

@@ -1,21 +1,19 @@
 //
-//  NewsVC.swift
+//  CustomViewController.swift
 //  TravelMate
 //
-//  Created by Błażej Chwiećko on 23/10/15.
+//  Created by Błażej Chwiećko on 24/10/15.
 //  Copyright © 2015 Parse. All rights reserved.
 //
 
 import UIKit
 
-class NewsVC: BaseViewController {
+class CustomViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
-        
-        navigationItem.hidesBackButton = true
-        navigationController
     }
 
     override func didReceiveMemoryWarning() {
