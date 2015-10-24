@@ -10,9 +10,10 @@ import UIKit
 
 class ListVC: BaseViewController {
 
+    var places: [PlaceModel] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -32,4 +33,21 @@ class ListVC: BaseViewController {
     }
     */
 
+}
+
+extension ListVC: UITableViewDataSource {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(CellsIdentifiers.placeTVC , forIndexPath: indexPath) as! PlaceTVC
+        cell.configureCell(places[indexPath.row])
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
+        return cell
+    }
+}
+
+extension ListVC: UITableViewDelegate {
+    
 }

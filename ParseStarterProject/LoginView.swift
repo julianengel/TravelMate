@@ -10,6 +10,8 @@ import Foundation
 import Parse
 import ParseUI
 
+let logInSegue = "LogInSegue"
+
 class LoginView: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate  {
     
     var logInViewController: PFLogInViewController! = PFLogInViewController()
@@ -46,7 +48,7 @@ class LoginView: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewCo
             self.logInViewController.signUpController = self.signUpViewController
             
         } else {
-            
+            performSegueWithIdentifier(logInSegue, sender: nil)
         }
         
     }
