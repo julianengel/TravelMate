@@ -80,7 +80,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VXg-0j-LIc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AddTour" translatesAutoresizingMaskIntoConstraints="NO" id="VXg-0j-LIc">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <animations/>
                             </imageView>
@@ -1005,6 +1005,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="AddTour" width="124" height="26"/>
         <image name="add" width="73" height="52"/>
         <image name="map" width="73" height="52"/>
         <image name="news" width="65" height="44"/>
