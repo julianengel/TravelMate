@@ -34,6 +34,9 @@
 		BE5322071BDAEF1000E4FB81 /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5322061BDAEF1000E4FB81 /* PlaceModel.swift */; };
 		BE53220A1BDAEFEC00E4FB81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE5322091BDAEFEC00E4FB81 /* LaunchScreen.storyboard */; };
 		BEB8CC811BDBD5230073FF18 /* FacebookSDKStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BEB8CC801BDBD5230073FF18 /* FacebookSDKStrings.bundle */; };
+		BEB8CC831BDBF0B00073FF18 /* jon.png in Resources */ = {isa = PBXBuildFile; fileRef = BEB8CC821BDBF0AF0073FF18 /* jon.png */; };
+		BEB8CC851BDBF14F0073FF18 /* five-stars.png in Resources */ = {isa = PBXBuildFile; fileRef = BEB8CC841BDBF14F0073FF18 /* five-stars.png */; };
+		BEB8CC871BDBF1890073FF18 /* speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = BEB8CC861BDBF1890073FF18 /* speaker.png */; };
 		BEB9572A1BDAD64000EC7815 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB957291BDAD64000EC7815 /* BaseViewController.swift */; };
 		BEB9572D1BDAD66A00EC7815 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB9572C1BDAD66A00EC7815 /* NewsVC.swift */; };
 		BEB9572F1BDAD67900EC7815 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB9572E1BDAD67900EC7815 /* SearchVC.swift */; };
@@ -85,6 +88,9 @@
 		BE5322061BDAEF1000E4FB81 /* PlaceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceModel.swift; path = Models/PlaceModel.swift; sourceTree = "<group>"; };
 		BE5322091BDAEFEC00E4FB81 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEB8CC801BDBD5230073FF18 /* FacebookSDKStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKStrings.bundle; path = ../../../Desktop/FB/FacebookSDKStrings.bundle; sourceTree = "<group>"; };
+		BEB8CC821BDBF0AF0073FF18 /* jon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jon.png; sourceTree = "<group>"; };
+		BEB8CC841BDBF14F0073FF18 /* five-stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "five-stars.png"; sourceTree = "<group>"; };
+		BEB8CC861BDBF1890073FF18 /* speaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speaker.png; sourceTree = "<group>"; };
 		BEB957291BDAD64000EC7815 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = ViewControllers/BaseViewController.swift; sourceTree = "<group>"; };
 		BEB9572C1BDAD66A00EC7815 /* NewsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsVC.swift; path = ViewControllers/NewsVC.swift; sourceTree = "<group>"; };
 		BEB9572E1BDAD67900EC7815 /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchVC.swift; path = ViewControllers/SearchVC.swift; sourceTree = "<group>"; };
@@ -140,7 +146,10 @@
 		814C3AC51B69877600E307BB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BEB8CC821BDBF0AF0073FF18 /* jon.png */,
+				BEB8CC861BDBF1890073FF18 /* speaker.png */,
 				7AE989DE1BDBCB6B0075209A /* logo.png */,
+				BEB8CC841BDBF14F0073FF18 /* five-stars.png */,
 				7A6172721BDB7299008919A7 /* 12065615_10154230974098906_793892778809770643_n.jpg */,
 				7A6172741BDB7CC1008919A7 /* gPCjrIGykBe.jpg */,
 				814C3AC81B69877600E307BB /* Images.xcassets */,
@@ -327,14 +336,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE53220A1BDAEFEC00E4FB81 /* LaunchScreen.storyboard in Resources */,
+				BEB8CC871BDBF1890073FF18 /* speaker.png in Resources */,
 				814C3ACB1B69877600E307BB /* Images.xcassets in Resources */,
 				7A6172751BDB7CC1008919A7 /* gPCjrIGykBe.jpg in Resources */,
 				BE41E4881BDAD9C100A09049 /* Storyboard.storyboard in Resources */,
 				7AE989DF1BDBCB6B0075209A /* logo.png in Resources */,
+				BEB8CC831BDBF0B00073FF18 /* jon.png in Resources */,
 				7A6172731BDB7299008919A7 /* 12065615_10154230974098906_793892778809770643_n.jpg in Resources */,
 				BEB8CC811BDBD5230073FF18 /* FacebookSDKStrings.bundle in Resources */,
 				BED576B51BDB07290049B646 /* PlaceTVC.xib in Resources */,
 				7AE989E21BDBD1CE0075209A /* Media.xcassets in Resources */,
+				BEB8CC851BDBF14F0073FF18 /* five-stars.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,7 @@ class PlaceTVC: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     
+    @IBOutlet weak var jon: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,6 +25,8 @@ class PlaceTVC: UITableViewCell {
     }
     
     func configureCell(place: PlaceModel) {
+        jon.layer.cornerRadius = jon.frame.size.width/2
+        jon.clipsToBounds = false
         nameLabel.text = place.name
     }
 }

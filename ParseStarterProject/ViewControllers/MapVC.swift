@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import MBProgressHUD
+import CoreLocation
 
 protocol MapVCDelegate: class {
     //func reverseGeocodingFinishedWith(placemark: CLPlacemark)
@@ -36,10 +37,11 @@ class MapVC: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
         mapView.delegate = self
         congifureLongPress()
-        
+
         doneButton!.sizeToFit()
         doneButton!.titleEdgeInsets = UIEdgeInsetsMake(0, -doneButton!.imageView!.frame.size.width, 0, doneButton!.imageView!.frame.size.width)
         doneButton!.imageEdgeInsets = UIEdgeInsetsMake(0, doneButton!.titleLabel!.frame.size.width, 0, -doneButton!.titleLabel!.frame.size.width)
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,6 +51,8 @@ class MapVC: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         appDelegate.topVC?.topImageView.image = UIImage(named: "recordARout")
+        mapView.removeAnnotations(mapView.annotations)
+
     }
     
     func congifureLongPress() {

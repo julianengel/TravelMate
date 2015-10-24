@@ -34,12 +34,11 @@ class NewsVC: BaseViewController {
         locationManager.startUpdatingLocation()
         
         networkingManager.delegate = self
-        networkingManager.downlaodAllPlaces()
-        
     }
 
     override func viewWillAppear(animated: Bool) {
         appDelegate.topVC?.topImageView.image = UIImage(named: "Searchingresults")
+        networkingManager.downlaodAllPlaces()
     }
     
     override func didReceiveMemoryWarning() {
@@ -134,6 +133,6 @@ extension NewsVC: NetworkingManagerDelegate {
         self.mapView.addAnnotations(self.places)
         let region = regionForAnnotations(places)
         mapView.setRegion(region, animated: true)
-        //print(places)
+        print(places)
     }
 }

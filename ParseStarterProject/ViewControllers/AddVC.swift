@@ -184,6 +184,13 @@ class AddVC: BaseViewController {
                 place["latitude"] = placeModel.location?.latitude
                 place["longitude"] = placeModel.location?.longitude
                 place["audioName"] = audioName
+                place["type"] = placeModel.type?.rawValue
+                place["language"] = placeModel.language?.rawValue
+                place["city"] = placeModel.city
+                
+                
+                print(placeModel.name,placeModel.placeDescription,placeModel.location?.latitude,placeModel.location?.longitude,audioName,placeModel.type?.rawValue,placeModel.language?.rawValue,placeModel.city)
+                
                 place.saveInBackground()
                 let audio = PFObject(className: "Audio")
                 audio["Name"] = audioName
@@ -419,6 +426,7 @@ class AddVC: BaseViewController {
     }
  
     @IBAction func languageDidClick(sender: AnyObject?) {
+        nameTextField.resignFirstResponder()
         let alertController = UIAlertController(title: "Choose language", message: "", preferredStyle: .ActionSheet)
         let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
             self.checkIfDataValid()
@@ -428,12 +436,14 @@ class AddVC: BaseViewController {
         
         let polishAction: UIAlertAction = UIAlertAction(title: "Polish", style: .Default) { action -> Void in
            // self.languageButton.titleLabel?.text = "Polish"
+            self.languageButton.setTitle("Polish", forState: .Normal)
             self.placeModel.language = Languages.polish
             self.checkIfDataValid()
         }
         alertController.addAction(polishAction)
         
         let englishAction: UIAlertAction = UIAlertAction(title: "English", style: .Default) { action -> Void in
+            self.languageButton.setTitle("English", forState: .Normal)
            // self.languageButton.titleLabel?.text = "English"
             self.placeModel.language = Languages.english
             self.checkIfDataValid()
@@ -441,6 +451,7 @@ class AddVC: BaseViewController {
         alertController.addAction(englishAction)
         
         let ukrainianAction: UIAlertAction = UIAlertAction(title: "Ukrainian", style: .Default) { action -> Void in
+            self.languageButton.setTitle("Ukrainian", forState: .Normal)
           //  self.languageButton.titleLabel?.text = "Ukrainian"
             self.placeModel.language = Languages.ukrainian
             self.checkIfDataValid()
@@ -452,6 +463,8 @@ class AddVC: BaseViewController {
     }
     
     @IBAction func typeDidClick(sender: AnyObject?) {
+        nameTextField.resignFirstResponder()
+
         let alertController = UIAlertController(title: "Choose type", message: "", preferredStyle: .ActionSheet)
         
         let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
@@ -461,6 +474,7 @@ class AddVC: BaseViewController {
         alertController.addAction(cancelAction)
         
         let monumentAction: UIAlertAction = UIAlertAction(title: "Monument", style: .Default) { action -> Void in
+            self.typeButton.setTitle("Monument", forState: .Normal)
             //self.typeButton.titleLabel?.text = "Monument"
             self.placeModel.type = Types.monument
             self.checkIfDataValid()
@@ -468,6 +482,7 @@ class AddVC: BaseViewController {
         alertController.addAction(monumentAction)
         
         let buildingAction: UIAlertAction = UIAlertAction(title: "Building", style: .Default) { action -> Void in
+            self.typeButton.setTitle("Building", forState: .Normal)
 //            self.typeButton.titleLabel?.text = "Building"
             self.placeModel.type = Types.building
             self.checkIfDataValid()
@@ -476,7 +491,8 @@ class AddVC: BaseViewController {
         
         let landmarkAction: UIAlertAction = UIAlertAction(title: "Landmark", style: .Default) { action -> Void in
 //            self.typeButton.titleLabel?.text = "Landmark"l
-            
+            self.typeButton.setTitle("Landmark", forState: .Normal)
+
             self.placeModel.type = Types.landmark
             self.checkIfDataValid()
         }

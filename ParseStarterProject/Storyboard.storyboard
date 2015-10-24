@@ -261,6 +261,7 @@
                     <connections>
                         <outlet property="cityTextField" destination="L64-pk-Oa2" id="rif-kZ-7ky"/>
                         <outlet property="languageButton" destination="BEm-BK-9qJ" id="WpY-si-sEF"/>
+                        <outlet property="searchButton" destination="lpL-em-463" id="RQ7-QG-bf6"/>
                         <outlet property="typeButton" destination="Q9s-YR-KZh" id="hS8-da-H07"/>
                     </connections>
                 </viewController>
@@ -421,6 +422,7 @@
                     <connections>
                         <outlet property="addPhotoButton" destination="JlI-qo-UHw" id="czp-Ih-gWX"/>
                         <outlet property="descriptionTextView" destination="Nqx-ng-qHc" id="PeS-hs-Cmb"/>
+                        <outlet property="languageButton" destination="mlc-Gj-tEv" id="PbF-kQ-Oha"/>
                         <outlet property="nameTextField" destination="aGA-9h-GCb" id="dtH-g4-hEl"/>
                         <outlet property="placePhoto" destination="a2q-RF-h3g" id="ym0-bF-vH6"/>
                         <outlet property="playButton" destination="eAK-w6-mjU" id="4gl-S6-10g"/>
@@ -428,6 +430,7 @@
                         <outlet property="send" destination="Lrd-ga-zOs" id="SA5-rl-6rK"/>
                         <outlet property="statusLabel" destination="Y8Y-w7-ROA" id="bkl-mh-JRJ"/>
                         <outlet property="stopButton" destination="O4c-bX-SMS" id="dXe-dj-vWs"/>
+                        <outlet property="typeButton" destination="F4Z-5K-VYZ" id="mZy-HA-NPx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SUv-er-pFk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -446,7 +449,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wuo-2w-lrE">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wuo-2w-lrE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <animations/>
                             </mapView>

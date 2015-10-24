@@ -30,6 +30,18 @@ class SearchVC: BaseViewController {
         configureTapGesturte()
         
         networkingManager.delegate = self
+        
+        cityTextField.layer.cornerRadius = 8
+        cityTextField.clipsToBounds = true
+        
+        languageButton.layer.cornerRadius = 8
+        languageButton.clipsToBounds = true
+        
+        typeButton.layer.cornerRadius = 8
+        typeButton.clipsToBounds = true
+        
+        searchButton.layer.cornerRadius = 8
+        searchButton.clipsToBounds = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,7 +50,7 @@ class SearchVC: BaseViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        appDelegate.topVC?.topImageView.image = UIImage(named: "searchtour")
+        appDelegate.topVC?.topImageView.image = UIImage(named: "SearchYourTour")
     }
 
     // MARK: TapGestureRecognizer functions

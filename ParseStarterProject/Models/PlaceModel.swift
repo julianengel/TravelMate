@@ -24,6 +24,8 @@ class PlaceModel: NSObject, MKAnnotation {
     
     var rating: Int?
     
+    var facebookID: String?
+    
     var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2DMake((location?.latitude)!, (location?.longitude)!)
     }

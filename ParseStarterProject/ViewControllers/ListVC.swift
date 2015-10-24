@@ -19,7 +19,6 @@ class ListVC: BaseViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         networkingManager.delegate = self
-        networkingManager.downlaodAllPlaces()
         
         let cellNib = UINib(nibName: CellsIdentifiers.placeTVC, bundle: nil)
         tableView!.registerNib(cellNib, forCellReuseIdentifier: CellsIdentifiers.placeTVC)
@@ -32,6 +31,8 @@ class ListVC: BaseViewController {
     
     override func viewWillAppear(animated: Bool) {
         appDelegate.topVC?.topImageView.image = UIImage(named: "famousetours")
+        networkingManager.downlaodAllPlaces()
+
     }
     
     /*
