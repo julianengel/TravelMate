@@ -82,10 +82,6 @@
                                 <rect key="frame" x="0.0" y="-94" width="375" height="667"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I2m-S1-dd2">
-                                <rect key="frame" x="67" y="112" width="240" height="128"/>
-                                <animations/>
-                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -100,7 +96,6 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="571"/>
                     <connections>
-                        <outlet property="myView" destination="I2m-S1-dd2" id="vYt-3E-h1A"/>
                         <segue destination="MyI-wm-jZZ" kind="show" identifier="LogInSegue" id="szP-bR-3C7"/>
                     </connections>
                 </viewController>
@@ -514,16 +509,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="EMAIL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oL6-EI-pme">
-                                <rect key="frame" x="20" y="381" width="335" height="55"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="wbX-rp-aAi"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="25"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cGR-HE-73P">
                                 <rect key="frame" x="87" y="68" width="200" height="200"/>
                                 <animations/>
@@ -544,10 +529,17 @@
                                 <state key="normal" title="LOG OUT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="logOut:" destination="rTH-5W-Eur" eventType="touchUpInside" id="bfo-z8-Fie"/>
-                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="EMAIL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oL6-EI-pme">
+                                <rect key="frame" x="20" y="381" width="335" height="55"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="wbX-rp-aAi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.28235294117647058" green="0.39215686274509803" blue="0.48627450980392156" alpha="1" colorSpace="calibratedRGB"/>
@@ -566,9 +558,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="profile" id="UuF-BK-iGF"/>
                     <connections>
-                        <outlet property="mailLabel" destination="oL6-EI-pme" id="2V3-mm-ojm"/>
-                        <outlet property="nameLabel" destination="4Dt-JN-Ttl" id="ghR-nK-oAp"/>
-                        <outlet property="ppIV" destination="cGR-HE-73P" id="tew-iW-HNR"/>
+                        <outlet property="mailLabel" destination="oL6-EI-pme" id="5W5-HH-aQb"/>
+                        <outlet property="nameLabel" destination="4Dt-JN-Ttl" id="J0r-IU-UAV"/>
+                        <outlet property="ppIV" destination="cGR-HE-73P" id="ySb-Xg-lWl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="chX-EP-VX3" userLabel="First Responder" sceneMemberID="firstResponder"/>

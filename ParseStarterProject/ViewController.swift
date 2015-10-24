@@ -19,24 +19,29 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     
     
-    @IBOutlet weak var myView: UIImageView!
-    
     override func viewDidLoad() {
+        newRule()
         
         if FBSDKAccessToken.currentAccessToken() == nil{
             
             print("No One Logged In")
+            
+            
             
         }
         
         else {
             
             print("Someone is logged in")
+            self.performSegueWithIdentifier("LogInSegue", sender: self)
+
             returnUserData()
             
         }
         
-        var loginButton = FBSDKLoginButton()
+        
+        
+        let loginButton = FBSDKLoginButton()
         loginButton.readPermissions = ["public_profile","email","user_friends"]
         loginButton.center = self.view.center
         
@@ -68,7 +73,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                 if let id: NSString = result.valueForKey("id") as? NSString {
                     print("ID is: \(id)")
                     self.facebookCredentials.setObject(id, forKey: "id")
-                    self.returnUserProfileImage(id)
+                   // self.returnUserProfileImage(id)
                 } else {
                     print("ID es null")
                 }
@@ -79,21 +84,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
 
     
-    
-    func returnUserProfileImage(accessToken: NSString)
-    {
-        var userID = accessToken as NSString
-        var facebookProfileUrl = NSURL(string: "https://graph.facebook.com/\(userID)/picture?type=large")
-        
-        if let data = NSData(contentsOfURL: facebookProfileUrl!) {
-            print("here;s okay")
-            let myImage = UIImage(data: data)
-            myView.image = myImage
-            
-            print(myImage)
-            print("lalalalalal")
-        }
-        
+    func newRule(){
         let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"name, email"])
         graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
             
@@ -107,6 +98,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                 print("fetched user: \(result)")
                 let userEmail : NSString = result.valueForKey("email") as! NSString
                 print("User Email is: \(userEmail)")
+                self.facebookCredentials.setObject(userEmail, forKey: "mail")
                 let userName : NSString = result.valueForKey("name") as! NSString
                 print("User Name is: \(userName)")
                 self.facebookCredentials.setObject(userName, forKey: "name")
