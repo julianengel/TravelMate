@@ -7,13 +7,17 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ListVC: BaseViewController {
-
+    
     var places: [PlaceModel] = []
     let networkingManager = NetworkingManager()
     
+    var cell: PlaceTVC!
+    
     weak var tableView: UITableView!
+    var player: AVAudioPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +27,7 @@ class ListVC: BaseViewController {
         let cellNib = UINib(nibName: CellsIdentifiers.placeTVC, bundle: nil)
         tableView!.registerNib(cellNib, forCellReuseIdentifier: CellsIdentifiers.placeTVC)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -32,23 +36,22 @@ class ListVC: BaseViewController {
     override func viewWillAppear(animated: Bool) {
         appDelegate.topVC?.topImageView.image = UIImage(named: "famousetours")
         networkingManager.downlaodAllPlaces()
-
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == SeguesIdentifiers.placeSegue {
-            let controller = segue.destinationViewController as! PlaceVC
-            let indexPath = sender as! Int
-            controller.place = places[indexPath]
+    func setSessionPlayback() {
+        let session:AVAudioSession = AVAudioSession.sharedInstance()
+        
+        do {
+            try session.setCategory(AVAudioSessionCategoryPlayback)
+        } catch let error as NSError {
+            print("could not set session category")
+            print(error.localizedDescription)
+        }
+        do {
+            try session.setActive(true)
+        } catch let error as NSError {
+            print("could not make session active")
+            print(error.localizedDescription)
         }
     }
 }
@@ -73,7 +76,25 @@ extension ListVC: UITableViewDataSource {
 
 extension ListVC: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier(SeguesIdentifiers.placeSegue, sender: indexPath.row)
+        let place = places[indexPath.row]
+        cell = tableView.cellForRowAtIndexPath(indexPath) as? PlaceTVC
+        if !cell!.downloaded {
+            networkingManager.downloadAudioForName(place.audioFileName)
+            cell?.selected = false
+        } else {
+            if (cell!.audioData != nil) {
+                setSessionPlayback()
+                do {
+                    self.player = try AVAudioPlayer(data: cell!.audioData!)
+                    self.player?.play()
+                } catch _ {
+                    self.player = nil
+                    print("nie udalo się :(")
+                }
+            }
+            cell?.selected = false
+        }
+        //  performSegueWithIdentifier(SeguesIdentifiers.placeSegue, sender: indexPath.row)
     }
 }
 
@@ -84,5 +105,11 @@ extension ListVC: NetworkingManagerDelegate {
             self.tableView.reloadData()
         }
         //print(places)
+    }
+    func downloadedDataForAudio(data: NSData) {
+        cell!.audioData = data
+        cell!.downloaded = true
+        cell?.downloadImage.hidden = true
+        cell?.speakerImage.hidden = false
     }
 }

@@ -468,8 +468,8 @@
                                     <action selector="cancelButtonDidClick:" destination="ucs-M3-o7V" eventType="touchUpInside" id="ulk-5W-uh1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHm-iL-Qbk">
-                                <rect key="frame" x="186" y="600" width="188" height="67"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHm-iL-Qbk">
+                                <rect key="frame" x="187.5" y="600" width="187.5" height="67"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.4823529412" green="0.88235294119999996" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -628,65 +628,11 @@
                     <tabBarItem key="tabBarItem" title="" image="news" id="ES9-Yo-oGe"/>
                     <connections>
                         <outlet property="tableView" destination="RFQ-Pt-gsB" id="vaT-5I-PRi"/>
-                        <segue destination="lln-CE-Kyu" kind="presentation" identifier="PlaceSegue" modalPresentationStyle="currentContext" modalTransitionStyle="crossDissolve" id="No5-9Q-5VA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yqc-Hp-mza" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3426.5" y="1106.5"/>
-        </scene>
-        <!--PlaceVC-->
-        <scene sceneID="LnS-qs-FTj">
-            <objects>
-                <viewController id="lln-CE-Kyu" customClass="PlaceVC" customModule="TravelMate" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="6Pv-yc-l3Z"/>
-                        <viewControllerLayoutGuide type="bottom" id="ULd-Q4-rhI"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0S6-xS-nkB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ou-gW-4ba">
-                                <rect key="frame" x="17" y="20" width="338" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M5e-Hn-kIg">
-                                <rect key="frame" x="17" y="49" width="338" height="216"/>
-                                <animations/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vC9-6G-qHj">
-                                <rect key="frame" x="172" y="479" width="30" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Play"/>
-                                <connections>
-                                    <action selector="playButtonTouchUp:" destination="lln-CE-Kyu" eventType="touchUpInside" id="u3n-8D-Gn8"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FdD-fu-hFd">
-                                <rect key="frame" x="17" y="273" width="338" height="198"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="descriptionTextView" destination="FdD-fu-hFd" id="eh5-tf-lBq"/>
-                        <outlet property="nameLabel" destination="4Ou-gW-4ba" id="Snm-q4-y99"/>
-                        <outlet property="playButton" destination="vC9-6G-qHj" id="HzQ-Vv-QPk"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rAk-gT-Cew" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4214.5" y="1106.5"/>
         </scene>
         <!--Base Tab Bar Controller-->
         <scene sceneID="rxe-sp-kdb">

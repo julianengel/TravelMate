@@ -36,10 +36,13 @@ class NetworkingManager: NSObject {
                     place.location = CLLocationCoordinate2DMake(latitude,longitude)
                     
                     let type = element.objectForKey("type") as! Int
-                    place.type? = Types(rawValue: type)!
+                    print(type)
+                    place.type = Types(rawValue: type)
                     
                     let language = element.objectForKey("language") as! Int
-                    place.language? = Languages(rawValue: language)!
+                    print(language)
+                    place.language = Languages(rawValue: language)
+                    
                     
                     place.city = element.objectForKey("city") as? String
                     
@@ -93,10 +96,13 @@ class NetworkingManager: NSObject {
                         let longitude: Double = element.objectForKey("longitude") as! Double
                         place.location = CLLocationCoordinate2DMake(latitude,longitude)
                         
+                        
                         let type = element.objectForKey("type") as! Int
+                        print(type)
                         place.type? = Types(rawValue: type)!
                         
                         let language = element.objectForKey("language") as! Int
+                        print(language)
                         place.language? = Languages(rawValue: language)!
                         
                         place.city = element.objectForKey("city") as? String

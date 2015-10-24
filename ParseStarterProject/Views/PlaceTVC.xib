@@ -16,10 +16,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of the place" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ajm-Lp-Ji3">
-                        <rect key="frame" x="67" y="9" width="202" height="29"/>
+                        <rect key="frame" x="67" y="14" width="202" height="21"/>
                         <animations/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="29" id="NRe-H8-elW"/>
+                            <constraint firstAttribute="height" constant="21" id="NRe-H8-elW"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -52,40 +52,70 @@
                             <constraint firstAttribute="height" constant="35" id="oVY-PA-wgq"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="five-stars.png" translatesAutoresizingMaskIntoConstraints="NO" id="4ZX-84-Vf1">
-                        <rect key="frame" x="110" y="44" width="100" height="23"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2r-s0-W8l">
+                        <rect key="frame" x="169" y="43" width="100" height="21"/>
                         <animations/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="23" id="7uw-P9-fEj"/>
-                            <constraint firstAttribute="width" constant="100" id="hb2-Xw-xhO"/>
+                            <constraint firstAttribute="height" constant="21" id="nbp-BC-3RW"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8w8-1a-jMP">
+                        <rect key="frame" x="67" y="43" width="94" height="21"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="bLA-xl-ptP"/>
+                            <constraint firstAttribute="width" constant="94" id="z3H-mi-3ZH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="download.png" translatesAutoresizingMaskIntoConstraints="NO" id="73D-ZK-Fe0">
+                        <rect key="frame" x="279" y="23" width="30" height="30"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="SnX-H8-Ao8"/>
+                            <constraint firstAttribute="width" constant="30" id="pJv-Lv-M2T"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <animations/>
                 <constraints>
-                    <constraint firstItem="4ZX-84-Vf1" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="0dU-3B-dq0"/>
                     <constraint firstItem="AHt-nr-Uuh" firstAttribute="leading" secondItem="Ajm-Lp-Ji3" secondAttribute="trailing" constant="8" id="5MU-K3-y7w"/>
+                    <constraint firstItem="8w8-1a-jMP" firstAttribute="top" secondItem="Ajm-Lp-Ji3" secondAttribute="bottom" constant="8" id="AYc-SQ-PvC"/>
                     <constraint firstItem="8db-Rw-k5r" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-2" id="C1r-1O-Q5y"/>
+                    <constraint firstItem="N2r-s0-W8l" firstAttribute="top" secondItem="Ajm-Lp-Ji3" secondAttribute="bottom" constant="8" id="CUP-YS-bhD"/>
+                    <constraint firstItem="8w8-1a-jMP" firstAttribute="leading" secondItem="8db-Rw-k5r" secondAttribute="trailing" constant="8" id="SyV-WP-7oy"/>
+                    <constraint firstItem="73D-ZK-Fe0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="15" id="Ztq-Hu-Xah"/>
+                    <constraint firstItem="AHt-nr-Uuh" firstAttribute="leading" secondItem="N2r-s0-W8l" secondAttribute="trailing" constant="8" id="aWG-VF-D4H"/>
                     <constraint firstItem="AHt-nr-Uuh" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="bTT-ls-gR6"/>
+                    <constraint firstItem="N2r-s0-W8l" firstAttribute="leading" secondItem="8w8-1a-jMP" secondAttribute="trailing" constant="8" id="heY-GV-ysF"/>
                     <constraint firstItem="Ajm-Lp-Ji3" firstAttribute="leading" secondItem="jfv-25-4HX" secondAttribute="trailing" constant="20" id="nj8-mM-tQt"/>
                     <constraint firstItem="8db-Rw-k5r" firstAttribute="top" secondItem="jfv-25-4HX" secondAttribute="bottom" constant="7" id="oBB-Df-rcz"/>
-                    <constraint firstItem="4ZX-84-Vf1" firstAttribute="top" secondItem="Ajm-Lp-Ji3" secondAttribute="bottom" constant="6" id="sfD-jI-Vki"/>
                     <constraint firstItem="jfv-25-4HX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="t4k-tD-Zz7"/>
                     <constraint firstItem="jfv-25-4HX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="9" id="uFt-oJ-HaL"/>
-                    <constraint firstItem="Ajm-Lp-Ji3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="ymR-6z-qwh"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="73D-ZK-Fe0" secondAttribute="trailing" constant="3" id="vwD-ZK-MQd"/>
+                    <constraint firstItem="Ajm-Lp-Ji3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="6" id="ymR-6z-qwh"/>
                     <constraint firstItem="AHt-nr-Uuh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="12" id="z5X-U9-JlP"/>
                 </constraints>
             </tableViewCellContentView>
             <animations/>
             <connections>
+                <outlet property="downloadImage" destination="73D-ZK-Fe0" id="oom-Ah-sRP"/>
                 <outlet property="jon" destination="jfv-25-4HX" id="O6N-iJ-EEP"/>
+                <outlet property="languageLabel" destination="N2r-s0-W8l" id="aiF-ae-elN"/>
                 <outlet property="nameLabel" destination="Ajm-Lp-Ji3" id="O65-ne-fiH"/>
+                <outlet property="speakerImage" destination="AHt-nr-Uuh" id="qOX-E8-3Ud"/>
+                <outlet property="typeLabel" destination="8w8-1a-jMP" id="RtT-b8-PeH"/>
             </connections>
             <point key="canvasLocation" x="245" y="286.5"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="five-stars.png" width="100" height="23"/>
+        <image name="download.png" width="512" height="512"/>
         <image name="jon.png" width="90" height="90"/>
         <image name="speaker.png" width="2000" height="2000"/>
     </resources>
