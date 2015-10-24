@@ -3,4 +3,6 @@ use_frameworks!
 target 'TravelMate' do
 pod 'ParseUI'
 pod 'Parse'
+pod 'MBProgressHUD'
+
 end

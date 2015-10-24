@@ -9,6 +9,11 @@
 import Foundation
 import Parse
 import ParseUI
+import ParseFacebookUtilsV4
+
+let logInSegue = "LogInSegue"
+
+
 
 class LoginView: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate  {
     
@@ -22,12 +27,13 @@ class LoginView: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewCo
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
+
         if (PFUser.currentUser() == nil) {
             
             
             self.logInViewController.fields = [PFLogInFields.UsernameAndPassword,
                 PFLogInFields.LogInButton, PFLogInFields.SignUpButton,
-                PFLogInFields.PasswordForgotten, PFLogInFields.DismissButton]
+                PFLogInFields.PasswordForgotten, PFLogInFields.DismissButton, PFLogInFields.Facebook]
             
             let logInLogoTitle = UILabel()
             logInLogoTitle.text = "Travel Mate"
@@ -46,7 +52,7 @@ class LoginView: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewCo
             self.logInViewController.signUpController = self.signUpViewController
             
         } else {
-            
+            performSegueWithIdentifier(logInSegue, sender: nil)
         }
         
     }
@@ -66,9 +72,48 @@ class LoginView: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewCo
         
         self.dismissViewControllerAnimated(true, completion: nil)
         
+        let my_id = FBSDKAccessToken.currentAccessToken().userID
+        print(my_id)
+        let facebookProfileUrl = NSURL(string: "http://graph.facebook.com/\(my_id)/picture?type=large")
+        print(facebookProfileUrl)
+//        
+//        if let data = NSData(contentsOfURL: facebookProfileUrl!) {
+//            let my_image = UIImage(data: data)
+//            print(my_image)
+//        }
+        
+        if((FBSDKAccessToken.currentAccessToken()) != nil){
+            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "name, email"]).startWithCompletionHandler({ (connection, result, error) -> Void in
+                if (error == nil){
+                    let theName = result["name"]
+                    let theMail = result["email"]
+                    let user = PFObject(className: "Registered")
+                    
+                    user["facebook"] = PFUser.currentUser()
+                    user["name"] = theName
+                    user["email"] = theMail
+                    user["image"] = String(facebookProfileUrl!)
+                    
+                    user.saveInBackgroundWithBlock({
+                        (success: Bool, error: NSError?) -> Void in
+                        if (success) {
+                            print("YAHOOOOOOOO")
+                        } else {
+                            // There was a problem, check error.description
+                        }
+                    })
+
+                    
+                    
+                }
+            })
+        }
+
+        
+        
     }
     
-    func logInViewController(logInController: PFLogInViewController, didFailToLogInWithError error: NSError?) {
+        func logInViewController(logInController: PFLogInViewController, didFailToLogInWithError error: NSError?) {
         print("Failed to login...")
     }
     

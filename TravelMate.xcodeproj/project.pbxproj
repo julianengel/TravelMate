@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7A20EFDA1BDAC7040082061C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A20EFD91BDAC7040082061C /* LoginView.swift */; };
+		7A6172731BDB7299008919A7 /* 12065615_10154230974098906_793892778809770643_n.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7A6172721BDB7299008919A7 /* 12065615_10154230974098906_793892778809770643_n.jpg */; };
+		7A6172751BDB7CC1008919A7 /* gPCjrIGykBe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7A6172741BDB7CC1008919A7 /* gPCjrIGykBe.jpg */; };
 		814C3ACB1B69877600E307BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AC81B69877600E307BB /* Images.xcassets */; };
 		81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA814A1A49DA1800E65899 /* AppDelegate.swift */; };
 		81BA814D1A49DA1800E65899 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA814C1A49DA1800E65899 /* ViewController.swift */; };
@@ -17,19 +19,42 @@
 		81BA81791A49E0DB00E65899 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81781A49E0DB00E65899 /* AudioToolbox.framework */; };
 		81BA817B1A49E0E500E65899 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */; };
 		81BA817F1A49E0F000E65899 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */; };
+		BE1397751BDAE44900CAA857 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE1397741BDAE44900CAA857 /* AVFoundation.framework */; };
 		BE41E4881BDAD9C100A09049 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE41E4871BDAD9C100A09049 /* Storyboard.storyboard */; };
+		BE41E48B1BDADD0C00A09049 /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE41E48A1BDADD0C00A09049 /* BeaconManager.swift */; };
+		BE5322031BDAED9700E4FB81 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5322021BDAED9700E4FB81 /* MapVC.swift */; };
+		BE5322051BDAEDA700E4FB81 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE5322041BDAEDA700E4FB81 /* MapKit.framework */; };
+		BE5322071BDAEF1000E4FB81 /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5322061BDAEF1000E4FB81 /* PlaceModel.swift */; };
+		BE53220A1BDAEFEC00E4FB81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE5322091BDAEFEC00E4FB81 /* LaunchScreen.storyboard */; };
+		BEB8CC6F1BDBB2830073FF18 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEB8CC6E1BDBB2830073FF18 /* Bolts.framework */; };
+		BEB8CC731BDBB28D0073FF18 /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEB8CC701BDBB28D0073FF18 /* FBSDKMessengerShareKit.framework */; };
+		BEB8CC741BDBB28D0073FF18 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEB8CC711BDBB28D0073FF18 /* FBSDKShareKit.framework */; };
+		BEB8CC751BDBB28D0073FF18 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEB8CC721BDBB28D0073FF18 /* ParseFacebookUtilsV4.framework */; };
+		BEB8CC781BDBB2980073FF18 /* FacebookSDKStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BEB8CC761BDBB2980073FF18 /* FacebookSDKStrings.bundle */; };
+		BEB8CC7D1BDBB2A80073FF18 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEB8CC7A1BDBB2A80073FF18 /* FBSDKCoreKit.framework */; };
+		BEB8CC7E1BDBB2A80073FF18 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEB8CC7B1BDBB2A80073FF18 /* FBSDKLoginKit.framework */; };
 		BEB9572A1BDAD64000EC7815 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB957291BDAD64000EC7815 /* BaseViewController.swift */; };
 		BEB9572D1BDAD66A00EC7815 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB9572C1BDAD66A00EC7815 /* NewsVC.swift */; };
 		BEB9572F1BDAD67900EC7815 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB9572E1BDAD67900EC7815 /* SearchVC.swift */; };
 		BEB957311BDAD6C900EC7815 /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB957301BDAD6C900EC7815 /* ListVC.swift */; };
 		BEB957331BDAD6D600EC7815 /* AddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB957321BDAD6D600EC7815 /* AddVC.swift */; };
 		BEB957351BDAD72900EC7815 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB957341BDAD72900EC7815 /* ProfileVC.swift */; };
+		BED576B41BDB07290049B646 /* PlaceTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED576B21BDB07290049B646 /* PlaceTVC.swift */; };
+		BED576B51BDB07290049B646 /* PlaceTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BED576B31BDB07290049B646 /* PlaceTVC.xib */; };
+		BED576B81BDB074A0049B646 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED576B71BDB074A0049B646 /* Constants.swift */; };
+		BED576BA1BDB09290049B646 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED576B91BDB09290049B646 /* NetworkingManager.swift */; };
+		BED576BC1BDB1AE80049B646 /* PlaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED576BB1BDB1AE80049B646 /* PlaceVC.swift */; };
+		BED576C01BDB31DA0049B646 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED576BF1BDB31DA0049B646 /* TabBar.swift */; };
+		BED576C21BDB40000049B646 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED576C11BDB40000049B646 /* BaseTabBarController.swift */; };
+		BED576C41BDB4BEB0049B646 /* TopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED576C31BDB4BEB0049B646 /* TopVC.swift */; };
 		EB8C4AB75C3DF5CD84A44678 /* Pods_TravelMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E33F121D12E29515948E5 /* Pods_TravelMate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2C014A623C7ADDD28680748A /* Pods-TravelMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelMate/Pods-TravelMate.debug.xcconfig"; sourceTree = "<group>"; };
 		7A20EFD91BDAC7040082061C /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		7A6172721BDB7299008919A7 /* 12065615_10154230974098906_793892778809770643_n.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 12065615_10154230974098906_793892778809770643_n.jpg; sourceTree = "<group>"; };
+		7A6172741BDB7CC1008919A7 /* gPCjrIGykBe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gPCjrIGykBe.jpg; sourceTree = "<group>"; };
 		814C3AC81B69877600E307BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		814C3AC91B69877600E307BB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81BA81451A49DA1800E65899 /* TravelMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,13 +69,34 @@
 		81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		81BA81801A49E10C00E65899 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		BE1397741BDAE44900CAA857 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		BE41E4871BDAD9C100A09049 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		BE41E48A1BDADD0C00A09049 /* BeaconManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeaconManager.swift; path = Controllers/BeaconManager.swift; sourceTree = "<group>"; };
+		BE5322021BDAED9700E4FB81 /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapVC.swift; path = ViewControllers/MapVC.swift; sourceTree = "<group>"; };
+		BE5322041BDAEDA700E4FB81 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		BE5322061BDAEF1000E4FB81 /* PlaceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceModel.swift; path = Models/PlaceModel.swift; sourceTree = "<group>"; };
+		BE5322091BDAEFEC00E4FB81 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BEB8CC6E1BDBB2830073FF18 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../../Desktop/FB/Bolts.framework; sourceTree = "<group>"; };
+		BEB8CC701BDBB28D0073FF18 /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKMessengerShareKit.framework; path = ../../../Desktop/FB/FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
+		BEB8CC711BDBB28D0073FF18 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../Desktop/FB/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		BEB8CC721BDBB28D0073FF18 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtilsV4.framework; path = ../../../Desktop/FB/ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
+		BEB8CC761BDBB2980073FF18 /* FacebookSDKStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKStrings.bundle; path = ../../../Desktop/FB/FacebookSDKStrings.bundle; sourceTree = "<group>"; };
+		BEB8CC7A1BDBB2A80073FF18 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../Desktop/FB/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		BEB8CC7B1BDBB2A80073FF18 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../Desktop/FB/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		BEB957291BDAD64000EC7815 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = ViewControllers/BaseViewController.swift; sourceTree = "<group>"; };
 		BEB9572C1BDAD66A00EC7815 /* NewsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsVC.swift; path = ViewControllers/NewsVC.swift; sourceTree = "<group>"; };
 		BEB9572E1BDAD67900EC7815 /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchVC.swift; path = ViewControllers/SearchVC.swift; sourceTree = "<group>"; };
 		BEB957301BDAD6C900EC7815 /* ListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListVC.swift; path = ViewControllers/ListVC.swift; sourceTree = "<group>"; };
 		BEB957321BDAD6D600EC7815 /* AddVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddVC.swift; path = ViewControllers/AddVC.swift; sourceTree = "<group>"; };
 		BEB957341BDAD72900EC7815 /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileVC.swift; path = ViewControllers/ProfileVC.swift; sourceTree = "<group>"; };
+		BED576B21BDB07290049B646 /* PlaceTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceTVC.swift; path = Views/PlaceTVC.swift; sourceTree = "<group>"; };
+		BED576B31BDB07290049B646 /* PlaceTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PlaceTVC.xib; path = Views/PlaceTVC.xib; sourceTree = "<group>"; };
+		BED576B71BDB074A0049B646 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BED576B91BDB09290049B646 /* NetworkingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkingManager.swift; path = Controllers/NetworkingManager.swift; sourceTree = "<group>"; };
+		BED576BB1BDB1AE80049B646 /* PlaceVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceVC.swift; path = ViewControllers/PlaceVC.swift; sourceTree = "<group>"; };
+		BED576BF1BDB31DA0049B646 /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBar.swift; path = Views/TabBar.swift; sourceTree = "<group>"; };
+		BED576C11BDB40000049B646 /* BaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseTabBarController.swift; path = ViewControllers/BaseTabBarController.swift; sourceTree = "<group>"; };
+		BED576C31BDB4BEB0049B646 /* TopVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TopVC.swift; path = ViewControllers/TopVC.swift; sourceTree = "<group>"; };
 		DD3E33F121D12E29515948E5 /* Pods_TravelMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6AD0C424A91690A57433EB1 /* Pods-TravelMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMate.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelMate/Pods-TravelMate.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,13 +106,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE5322051BDAEDA700E4FB81 /* MapKit.framework in Frameworks */,
+				BE1397751BDAE44900CAA857 /* AVFoundation.framework in Frameworks */,
 				81BA817F1A49E0F000E65899 /* libstdc++.6.dylib in Frameworks */,
 				81BA817B1A49E0E500E65899 /* SystemConfiguration.framework in Frameworks */,
 				81BA81791A49E0DB00E65899 /* AudioToolbox.framework in Frameworks */,
+				BEB8CC6F1BDBB2830073FF18 /* Bolts.framework in Frameworks */,
 				81BA81771A49E0D500E65899 /* libsqlite3.dylib in Frameworks */,
 				81BA81711A49DB6800E65899 /* Parse.framework in Frameworks */,
+				BEB8CC741BDBB28D0073FF18 /* FBSDKShareKit.framework in Frameworks */,
+				BEB8CC7D1BDBB2A80073FF18 /* FBSDKCoreKit.framework in Frameworks */,
 				81BA81701A49DB6800E65899 /* Bolts.framework in Frameworks */,
 				EB8C4AB75C3DF5CD84A44678 /* Pods_TravelMate.framework in Frameworks */,
+				BEB8CC731BDBB28D0073FF18 /* FBSDKMessengerShareKit.framework in Frameworks */,
+				BEB8CC7E1BDBB2A80073FF18 /* FBSDKLoginKit.framework in Frameworks */,
+				BEB8CC751BDBB28D0073FF18 /* ParseFacebookUtilsV4.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +139,8 @@
 		814C3AC51B69877600E307BB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7A6172721BDB7299008919A7 /* 12065615_10154230974098906_793892778809770643_n.jpg */,
+				7A6172741BDB7CC1008919A7 /* gPCjrIGykBe.jpg */,
 				814C3AC81B69877600E307BB /* Images.xcassets */,
 				814C3AC91B69877600E307BB /* Info.plist */,
 			);
@@ -94,6 +150,13 @@
 		81BA813C1A49DA1800E65899 = {
 			isa = PBXGroup;
 			children = (
+				BEB8CC7A1BDBB2A80073FF18 /* FBSDKCoreKit.framework */,
+				BEB8CC7B1BDBB2A80073FF18 /* FBSDKLoginKit.framework */,
+				BEB8CC761BDBB2980073FF18 /* FacebookSDKStrings.bundle */,
+				BEB8CC701BDBB28D0073FF18 /* FBSDKMessengerShareKit.framework */,
+				BEB8CC711BDBB28D0073FF18 /* FBSDKShareKit.framework */,
+				BEB8CC721BDBB28D0073FF18 /* ParseFacebookUtilsV4.framework */,
+				BEB8CC6E1BDBB2830073FF18 /* Bolts.framework */,
 				81BA81471A49DA1800E65899 /* ParseStarterProject */,
 				814C3AC51B69877600E307BB /* Resources */,
 				81BA816A1A49DB5600E65899 /* Frameworks */,
@@ -113,11 +176,18 @@
 		81BA81471A49DA1800E65899 /* ParseStarterProject */ = {
 			isa = PBXGroup;
 			children = (
+				BE41E4891BDADCAD00A09049 /* Controllers */,
 				81BA814A1A49DA1800E65899 /* AppDelegate.swift */,
 				81BA814C1A49DA1800E65899 /* ViewController.swift */,
 				7A20EFD91BDAC7040082061C /* LoginView.swift */,
 				BE41E4871BDAD9C100A09049 /* Storyboard.storyboard */,
+				BE5322091BDAEFEC00E4FB81 /* LaunchScreen.storyboard */,
 				BEB9572B1BDAD64900EC7815 /* ViewControllers */,
+				BE5322081BDAEF1400E4FB81 /* Models */,
+				BED576B61BDB072F0049B646 /* Views */,
+				BED576B71BDB074A0049B646 /* Constants.swift */,
+				BED576BF1BDB31DA0049B646 /* TabBar.swift */,
+				BED576C11BDB40000049B646 /* BaseTabBarController.swift */,
 			);
 			path = ParseStarterProject;
 			sourceTree = "<group>";
@@ -125,6 +195,8 @@
 		81BA816A1A49DB5600E65899 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE5322041BDAEDA700E4FB81 /* MapKit.framework */,
+				BE1397741BDAE44900CAA857 /* AVFoundation.framework */,
 				81BA816B1A49DB6800E65899 /* Bolts.framework */,
 				81BA816C1A49DB6800E65899 /* Parse.framework */,
 				81BA816D1A49DB6800E65899 /* ParseCrashReporting.framework */,
@@ -147,6 +219,23 @@
 			name = "System Frameworks";
 			sourceTree = "<group>";
 		};
+		BE41E4891BDADCAD00A09049 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BED576B91BDB09290049B646 /* NetworkingManager.swift */,
+				BE41E48A1BDADD0C00A09049 /* BeaconManager.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		BE5322081BDAEF1400E4FB81 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BE5322061BDAEF1000E4FB81 /* PlaceModel.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		BEB9572B1BDAD64900EC7815 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,8 +245,20 @@
 				BEB957301BDAD6C900EC7815 /* ListVC.swift */,
 				BEB957321BDAD6D600EC7815 /* AddVC.swift */,
 				BEB957341BDAD72900EC7815 /* ProfileVC.swift */,
+				BE5322021BDAED9700E4FB81 /* MapVC.swift */,
+				BED576BB1BDB1AE80049B646 /* PlaceVC.swift */,
+				BED576C31BDB4BEB0049B646 /* TopVC.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		BED576B61BDB072F0049B646 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BED576B21BDB07290049B646 /* PlaceTVC.swift */,
+				BED576B31BDB07290049B646 /* PlaceTVC.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,12 +292,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = Parse;
 				TargetAttributes = {
 					81BA81441A49DA1800E65899 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = SHDX4J36ZF;
+						DevelopmentTeam = 2229ZDREQZ;
 					};
 				};
 			};
@@ -223,8 +324,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE53220A1BDAEFEC00E4FB81 /* LaunchScreen.storyboard in Resources */,
+				BEB8CC781BDBB2980073FF18 /* FacebookSDKStrings.bundle in Resources */,
 				814C3ACB1B69877600E307BB /* Images.xcassets in Resources */,
+				7A6172751BDB7CC1008919A7 /* gPCjrIGykBe.jpg in Resources */,
 				BE41E4881BDAD9C100A09049 /* Storyboard.storyboard in Resources */,
+				7A6172731BDB7299008919A7 /* 12065615_10154230974098906_793892778809770643_n.jpg in Resources */,
+				BED576B51BDB07290049B646 /* PlaceTVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,12 +404,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEB957351BDAD72900EC7815 /* ProfileVC.swift in Sources */,
+				BE5322071BDAEF1000E4FB81 /* PlaceModel.swift in Sources */,
+				BED576C21BDB40000049B646 /* BaseTabBarController.swift in Sources */,
 				BEB957331BDAD6D600EC7815 /* AddVC.swift in Sources */,
+				BED576BA1BDB09290049B646 /* NetworkingManager.swift in Sources */,
 				BEB9572A1BDAD64000EC7815 /* BaseViewController.swift in Sources */,
+				BE41E48B1BDADD0C00A09049 /* BeaconManager.swift in Sources */,
+				BED576BC1BDB1AE80049B646 /* PlaceVC.swift in Sources */,
+				BED576C41BDB4BEB0049B646 /* TopVC.swift in Sources */,
+				BED576C01BDB31DA0049B646 /* TabBar.swift in Sources */,
 				7A20EFDA1BDAC7040082061C /* LoginView.swift in Sources */,
+				BE5322031BDAED9700E4FB81 /* MapVC.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* ViewController.swift in Sources */,
+				BED576B41BDB07290049B646 /* PlaceTVC.swift in Sources */,
 				BEB957311BDAD6C900EC7815 /* ListVC.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
+				BED576B81BDB074A0049B646 /* Constants.swift in Sources */,
 				BEB9572D1BDAD66A00EC7815 /* NewsVC.swift in Sources */,
 				BEB9572F1BDAD67900EC7815 /* SearchVC.swift in Sources */,
 			);
@@ -316,6 +432,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -332,6 +449,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -346,9 +464,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -359,6 +478,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -383,8 +503,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -398,14 +519,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Users/Blazej/Desktop/FB,
 				);
 				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.parse.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = TravelMate;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -416,14 +541,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					/Users/Blazej/Desktop/FB,
 				);
 				INFOPLIST_FILE = Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.parse.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = TravelMate;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
