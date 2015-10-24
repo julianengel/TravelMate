@@ -9,14 +9,48 @@
 import Foundation
 import Parse
 import ParseUI
+import FBSDKCoreKit
+import FBSDKLoginKit
 
-class LoginView: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate  {
+class LoginView: UIViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, FBSDKLoginButtonDelegate  {
     
     var logInViewController: PFLogInViewController! = PFLogInViewController()
     var signUpViewController: PFSignUpViewController! = PFSignUpViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if (FBSDKAccessToken.currentAccessToken() == nil)
+        {
+            print("Not logged in..")
+        }
+        else
+        {
+            print("Logged in..")
+        }
+        
+        var loginButton = FBSDKLoginButton()
+        loginButton.readPermissions = ["public_profile", "email", "user_friends"]
+        loginButton.center = self.view.center
+        loginButton.delegate = self
+        self.view.addSubview(loginButton)
+    }
+    
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!)
+    {
+        if error == nil
+        {
+            print("Login complete.")
+//            self.performSegueWithIdentifier("showNew", sender: self)
+        }
+        else
+        {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!)
+    {
+        print("User logged out...")
     }
     
     override func viewDidAppear(animated: Bool) {
