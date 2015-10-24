@@ -9,27 +9,156 @@
 
 import UIKit
 import Parse
+import FBSDKLoginKit
+import FBSDKCoreKit
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, FBSDKLoginButtonDelegate {
 
-    override func viewDidLoad() {
-        let user = PFUser()
-        user.username = "my name"
-        user.password = "my pass"
-        user.email = "email@example.com"
-        
-        // other fields can be set if you want to save more information
-        user["phone"] = "650-555-0000"
+    let facebookCredentials = NSUserDefaults.standardUserDefaults()
     
-            user.signUpInBackground()
+    
+    
+    @IBOutlet weak var myView: UIImageView!
+    
+    override func viewDidLoad() {
+        
+        if FBSDKAccessToken.currentAccessToken() == nil{
+            
+            print("No One Logged In")
+            
+        }
+        
+        else {
+            
+            print("Someone is logged in")
+            returnUserData()
+            
+        }
+        
+        var loginButton = FBSDKLoginButton()
+        loginButton.readPermissions = ["public_profile","email","user_friends"]
+        loginButton.center = self.view.center
+        
+       loginButton.delegate = self
+        
+        self.view.addSubview(loginButton)
+        
         
                 super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    
+    
+    func returnUserData()
+    {
+        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
+        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+            
+            if ((error) != nil)
+            {
+                // Process error
+                print("Error: \(error)")
+            }
+            else
+            {
+                print("fetched user: \(result)")
+                
+                if let id: NSString = result.valueForKey("id") as? NSString {
+                    print("ID is: \(id)")
+                    self.facebookCredentials.setObject(id, forKey: "id")
+                    self.returnUserProfileImage(id)
+                } else {
+                    print("ID es null")
+                }
+                
+                
+            }
+        })
+    }
+
+    
+    
+    func returnUserProfileImage(accessToken: NSString)
+    {
+        var userID = accessToken as NSString
+        var facebookProfileUrl = NSURL(string: "https://graph.facebook.com/\(userID)/picture?type=large")
+        
+        if let data = NSData(contentsOfURL: facebookProfileUrl!) {
+            print("here;s okay")
+            let myImage = UIImage(data: data)
+            myView.image = myImage
+            
+            print(myImage)
+            print("lalalalalal")
+        }
+        
+        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"name, email"])
+        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+            
+            if ((error) != nil)
+            {
+                // Process error
+                print("Error: \(error)")
+            }
+            else
+            {
+                print("fetched user: \(result)")
+                let userEmail : NSString = result.valueForKey("email") as! NSString
+                print("User Email is: \(userEmail)")
+                let userName : NSString = result.valueForKey("name") as! NSString
+                print("User Name is: \(userName)")
+                self.facebookCredentials.setObject(userName, forKey: "name")
+                
+            }
+        })
+    }
+        
+        
+    
+    
+    
+    
+    
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!)
+    {
+        if error == nil
+        {
+            print("Login complete.")
+            self.performSegueWithIdentifier("LogInSegue", sender: self)
+            
+            
+            
+            
+            
+        }
+        else
+        {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!)
+    {
+        print("User logged out...")
+    }
+    
+    
+
+    
+    
+    
+    
+    
+    
 
     override func didReceiveMemoryWarning() {
+        
         super.didReceiveMemoryWarning()
+        print(facebookCredentials.objectForKey("id"))
+        print(facebookCredentials.objectForKey("name"))
+        
         // Dispose of any resources that can be recreated.
     }
 }
