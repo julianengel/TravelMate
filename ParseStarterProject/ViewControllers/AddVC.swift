@@ -45,7 +45,7 @@ class AddVC: BaseViewController {
         askForNotifications()
         checkHeadphones()
         configureTapGesturte()
-        send.enabled = false
+        send.enabled = true
     }
     
     func updateAudioMeter(timer:NSTimer) {

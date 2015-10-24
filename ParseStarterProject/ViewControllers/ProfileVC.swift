@@ -37,14 +37,15 @@ class ProfileVC: BaseViewController {
                 // Do something with the found objects
                 if let objects = objects as [PFObject]! {
                     for object in objects {
+                        let name = object.objectForKey("name")
+                        let mail = object.objectForKey("email")
+                        self.mailLabel.text = mail as! String
+                        self.nameLabel.text = name as! String
+                        
+                        
+                        
                         var staring = object.objectForKey("image") as! String
                         print(staring)
-                        let name = object.objectForKey("name")
-                        let mail = object.objectForKey("mail")
-                        mailLabel.text = mail as! String
-                        nameLabel.text = name as! String
-                        
-                        
                         staring = staring.insert("s", ind: 4)
                         print(staring)
                         
