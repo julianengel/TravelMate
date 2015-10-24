@@ -12,6 +12,8 @@ import Parse
 class ProfileVC: BaseViewController {
 
     @IBOutlet weak var ppIV : UIImageView!
+    @IBOutlet weak var nameLabel : UILabel!
+    @IBOutlet weak var mailLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,17 +24,64 @@ class ProfileVC: BaseViewController {
         
       
 //        print(objects)
-        ppIV.image = UIImage(imageLiteral: "12065615_10154230974098906_793892778809770643_n.jpg")
+        ppIV.image = UIImage(imageLiteral: "gPCjrIGykBe.jpg")
         
-        let profilePicture = PFObject(className: "Registered")
-        let userImageFile = profilePicture["image"] as! PFFile
-        
-        userImageFile.getDataInBackgroundWithBlock( {(imageData, error) -> Void in
-            if (error == nil) {
-                let image = UIImage(data:imageData!)
-                self.ppIV.image = image
+        let query = PFQuery(className:"Registered")
+        query.whereKey("facebook", equalTo:PFUser.currentUser()!)
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+                // The find succeeded.
+                print("Successfully retrieved \(objects!.count) records.")
+                // Do something with the found objects
+                if let objects = objects as [PFObject]! {
+                    for object in objects {
+                        var staring = object.objectForKey("image") as! String
+                        print(staring)
+                        let name = object.objectForKey("name")
+                        let mail = object.objectForKey("mail")
+                        mailLabel.text = mail as! String
+                        nameLabel.text = name as! String
+                        
+                        
+                        staring = staring.insert("s", ind: 4)
+                        print(staring)
+                        
+                        var imgURL: NSURL = NSURL(string: staring as! String)!
+                        let request: NSURLRequest = NSURLRequest(URL: imgURL)
+                        NSURLConnection.sendAsynchronousRequest(
+                            request, queue: NSOperationQueue.mainQueue(),
+                            completionHandler: {(response,data,error) -> Void in
+                                if error == nil {
+                                    self.ppIV.image = UIImage(data: data!)
+                                }
+                        })
+                        
+//                        if let data = NSData(contentsOfURL: string as! NSURL) {
+//                            let my_image = UIImage(data: data)
+//                            print(my_image)
+//                        }
+
+                        
+                    }
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.userInfo)")
             }
-        })
+        }
+        }
+        
+       
+        
+        
+//
+//        userImageFile.getDataInBackgroundWithBlock( {(imageData, error) -> Void in
+//            if (error == nil) {
+//                let image = UIImage(data:imageData!)
+//                self.ppIV.image = image
+//            }
+//        })
         
         makeProfilePic(ppIV)
         
@@ -68,3 +117,11 @@ class ProfileVC: BaseViewController {
         image.layer.borderWidth = 3
     }
 }
+
+
+extension String {
+    func insert(string:String,ind:Int) -> String {
+        return  String(self.characters.prefix(ind)) + string + String(self.characters.suffix(self.characters.count-ind))
+    }
+}
+
