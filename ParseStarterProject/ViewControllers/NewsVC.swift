@@ -34,12 +34,35 @@ class NewsVC: BaseViewController {
         locationManager.startUpdatingLocation()
         
         networkingManager.delegate = self
+        
+        configBar()
     }
 
     override func viewWillAppear(animated: Bool) {
         appDelegate.topVC?.topImageView.image = UIImage(named: "A map")
         networkingManager.downlaodAllPlaces()
     }
+    
+    func configBar() {
+        let tabBarController = self.tabBarController
+        let tabBar = tabBarController?.tabBar
+        
+        for (_,element) in (tabBar?.items?.enumerate())! {
+            let tab = element 
+            tab.image = tab.image?.imageWithRenderingMode(.AlwaysOriginal)
+            tab.selectedImage = tab.image?.imageWithRenderingMode(.AlwaysOriginal)
+        }
+    }
+//    -(void) configTabBar
+//    {
+//    UITabBarController *tabBarController = [self tabBarController];
+//    UITabBar *tabBar = tabBarController.tabBar;
+//    
+//    for (UITabBarItem  *tab in tabBar.items) {
+//    tab.image = [tab.image imageWithRenderingMode: UIImageRenderingModeAlwaysOriginal];
+//    tab.selectedImage = [tab.image imageWithRenderingMode: UIImageRenderingModeAlwaysOriginal];
+//    }
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

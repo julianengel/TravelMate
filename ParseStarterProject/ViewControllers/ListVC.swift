@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 import MGSwipeTableCell
 import Parse
+import MBProgressHUD
 
 class ListVC: BaseViewController {
     
@@ -21,6 +22,7 @@ class ListVC: BaseViewController {
     weak var tableView: UITableView!
     var player: AVAudioPlayer?
     
+    var refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,9 @@ class ListVC: BaseViewController {
         
         let cellNib = UINib(nibName: CellsIdentifiers.placeTVC, bundle: nil)
         tableView!.registerNib(cellNib, forCellReuseIdentifier: CellsIdentifiers.placeTVC)
+        loadData(nil)
+        refreshControl.addTarget(self, action: "loadData:", forControlEvents: .ValueChanged)
+        tableView.addSubview(refreshControl)
     }
     
     override func didReceiveMemoryWarning() {
@@ -38,6 +43,9 @@ class ListVC: BaseViewController {
     
     override func viewWillAppear(animated: Bool) {
         appDelegate.topVC?.topImageView.image = UIImage(named: "Trending tours")
+    }
+    
+    func loadData(sender: AnyObject?) {
         networkingManager.downlaodAllPlaces()
     }
     
@@ -71,6 +79,7 @@ extension ListVC: UITableViewDataSource {
         cell.rightButtons = [
             MGSwipeButton(title: "", icon: UIImage(named: "piec"), backgroundColor: CustomColors.blue, callback: { (_) -> Bool in
                 let queue = PFQuery(className: "Places")
+                print(self.places[indexPath.row].audioFileName)
                 queue.whereKey("audioName", equalTo: self.places[indexPath.row].audioFileName)
                 queue.getFirstObjectInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
                     if error == nil {
@@ -150,9 +159,6 @@ extension ListVC: UITableViewDataSource {
                 return true
             })]
         cell.rightSwipeSettings.transition = MGSwipeTransition.Drag
-        
-        //print(places[0].name)
-        //cell.selectionStyle = UITableViewCellSelectionStyle.None
         return cell
     }
     
@@ -166,6 +172,9 @@ extension ListVC: UITableViewDelegate {
         let place = places[indexPath.row]
         cell = tableView.cellForRowAtIndexPath(indexPath) as? PlaceTVC
         if !cell!.downloaded {
+            let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            loadingNotification.mode = MBProgressHUDMode.Indeterminate
+            loadingNotification.labelText = NSLocalizedString("Loading", comment: "HUD Loading")
             networkingManager.downloadAudioForName(place.audioFileName)
             cell?.selected = false
         } else {
@@ -183,6 +192,19 @@ extension ListVC: UITableViewDelegate {
         }
         //  performSegueWithIdentifier(SeguesIdentifiers.placeSegue, sender: indexPath.row)
     }
+    func showCompletionHUDWithText(text: String, positive: Bool) {
+        let doneNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        if positive {
+            doneNotification.customView = UIImageView(image: UIImage(named: "Checkmark"))
+            doneNotification.labelText = NSLocalizedString(text, comment: "HUD Loading")
+        } else {
+            doneNotification.customView = UIImageView(image: UIImage(named: "Failed"))
+            doneNotification.labelText = NSLocalizedString("Failed", comment: "HUD Loading")
+        }
+        doneNotification.mode = MBProgressHUDMode.CustomView
+        doneNotification.show(true)
+        doneNotification.hide(true, afterDelay: 2)
+    }
 }
 
 extension ListVC: NetworkingManagerDelegate {
@@ -190,10 +212,12 @@ extension ListVC: NetworkingManagerDelegate {
         places = array
         dispatch_async(dispatch_get_main_queue()) { () -> Void in
             self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
         }
-        //print(places)
     }
     func downloadedDataForAudio(data: NSData) {
+        MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+        self.showCompletionHUDWithText("Completed", positive: true)
         cell!.audioData = data
         cell!.downloaded = true
         cell?.downloadImage.hidden = true

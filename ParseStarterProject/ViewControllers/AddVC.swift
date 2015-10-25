@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import Parse
+import MBProgressHUD
 
 class AddVC: BaseViewController {
     
@@ -42,6 +43,8 @@ class AddVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        deleteAllRecordings()
         
         stopButton.enabled = false
         playButton.enabled = false
@@ -193,7 +196,10 @@ class AddVC: BaseViewController {
             if soundData != nil {
                 // Do something
                 print("create pffile")
-                let audioName = NSString(format: "%f%f", (placeModel.location?.latitude)!,(placeModel.location?.longitude)!)
+                let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+                loadingNotification.mode = MBProgressHUDMode.Indeterminate
+                loadingNotification.labelText = NSLocalizedString("Loading", comment: "HUD Loading")
+                let audioName = NSString(format: "%.2faa%.2f", (placeModel.location?.latitude)!,(placeModel.location?.longitude)!)
                 let pffile = PFFile(data: soundData!)
                 let place = PFObject(className: "Places")
                 place["name"] = placeModel.name
@@ -206,6 +212,12 @@ class AddVC: BaseViewController {
                 place["city"] = placeModel.city
                 place["rating"] = 0
                 place["count"] = 0
+                
+                let defaultACL = PFACL()
+                defaultACL.setPublicReadAccess(true)
+                defaultACL.setPublicWriteAccess(true)
+                place.ACL = defaultACL
+                
                 let facebookCredentials = NSUserDefaults.standardUserDefaults()
                 place["fbID"] = facebookCredentials.objectForKey("fbID") as! String
                 
@@ -215,13 +227,41 @@ class AddVC: BaseViewController {
                 let audio = PFObject(className: "Audio")
                 audio["Name"] = audioName
                 audio["AudioData"] = pffile
-                audio.saveInBackground()
-                //return
+                audio.saveInBackgroundWithBlock({ (completed: Bool, error: NSError?) -> Void in
+                    if error == nil {
+                        if completed {
+                            print("completed")
+                            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                            self.showCompletionHUDWithText("Completed", positive: true)
+                        } else {
+                            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                            self.showCompletionHUDWithText("Failed", positive: false)
+                        }
+                    } else {
+                        MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                        self.showCompletionHUDWithText("Failed", positive: false)
+                    }
+                })
+                return
             }
             else {
                 print("error while creating data from record")
             }
         }
+    }
+    
+    func showCompletionHUDWithText(text: String, positive: Bool) {
+        let doneNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        if positive {
+            doneNotification.customView = UIImageView(image: UIImage(named: "Checkmark"))
+            doneNotification.labelText = NSLocalizedString(text, comment: "HUD Loading")
+        } else {
+            doneNotification.customView = UIImageView(image: UIImage(named: "Failed"))
+            doneNotification.labelText = NSLocalizedString("Failed", comment: "HUD Loading")
+        }
+        doneNotification.mode = MBProgressHUDMode.CustomView
+        doneNotification.show(true)
+        doneNotification.hide(true, afterDelay: 2)
     }
     
     func play() {

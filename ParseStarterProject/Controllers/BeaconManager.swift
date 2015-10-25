@@ -84,7 +84,7 @@ extension BeaconManager: CLLocationManagerDelegate {
                 delegate?.found("3")
             } else if element.proximityUUID.UUIDString.lowercaseString == beaconIcyMarshmallowJ.proximityUUID.UUIDString.lowercaseString && element.minor == beaconIcyMarshmallowJ.minor {
                 delegate?.found("4")
-            } else if element.proximityUUID.UUIDString.lowercaseString == beaconMintCocktailJ.proximityUUID.UUIDString.lowercaseString && element.minor == beaconMintCocktailJ.minor {
+            } else if element.proximityUUID.UUIDString.lowercaseString == beaconMintCocktailJ.proximityUUID.UUIDString.lowercaseString && element.minor == beaconMintCocktailJ.minor  && element.proximity == CLProximity.Immediate {
                 delegate?.found("5")
             }  else if element.proximityUUID.UUIDString.lowercaseString == beaconBlueberryPieJ.proximityUUID.UUIDString.lowercaseString && element.minor == beaconBlueberryPieJ.minor {
                 delegate?.found("6")

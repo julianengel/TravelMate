@@ -26,6 +26,8 @@
 		81BA817B1A49E0E500E65899 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */; };
 		81BA817F1A49E0F000E65899 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */; };
 		BE1397751BDAE44900CAA857 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE1397741BDAE44900CAA857 /* AVFoundation.framework */; };
+		BE25AB211BDC8448002404B9 /* estimote.png in Resources */ = {isa = PBXBuildFile; fileRef = BE25AB201BDC8448002404B9 /* estimote.png */; };
+		BE25AB231BDC85B3002404B9 /* play.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE25AB221BDC85B3002404B9 /* play.jpg */; };
 		BE41E4881BDAD9C100A09049 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE41E4871BDAD9C100A09049 /* Storyboard.storyboard */; };
 		BE41E48B1BDADD0C00A09049 /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE41E48A1BDADD0C00A09049 /* BeaconManager.swift */; };
 		BE5322031BDAED9700E4FB81 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5322021BDAED9700E4FB81 /* MapVC.swift */; };
@@ -37,6 +39,7 @@
 		BEB8CC851BDBF14F0073FF18 /* five-stars.png in Resources */ = {isa = PBXBuildFile; fileRef = BEB8CC841BDBF14F0073FF18 /* five-stars.png */; };
 		BEB8CC871BDBF1890073FF18 /* speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = BEB8CC861BDBF1890073FF18 /* speaker.png */; };
 		BEB8CC891BDBFBD70073FF18 /* download.png in Resources */ = {isa = PBXBuildFile; fileRef = BEB8CC881BDBFBD70073FF18 /* download.png */; };
+		BEB8CC8B1BDC7E370073FF18 /* BeaconVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB8CC8A1BDC7E370073FF18 /* BeaconVC.swift */; };
 		BEB9572A1BDAD64000EC7815 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB957291BDAD64000EC7815 /* BaseViewController.swift */; };
 		BEB9572D1BDAD66A00EC7815 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB9572C1BDAD66A00EC7815 /* NewsVC.swift */; };
 		BEB9572F1BDAD67900EC7815 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB9572E1BDAD67900EC7815 /* SearchVC.swift */; };
@@ -79,6 +82,8 @@
 		81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		81BA81801A49E10C00E65899 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		BE1397741BDAE44900CAA857 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		BE25AB201BDC8448002404B9 /* estimote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = estimote.png; sourceTree = "<group>"; };
+		BE25AB221BDC85B3002404B9 /* play.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = play.jpg; sourceTree = "<group>"; };
 		BE41E4871BDAD9C100A09049 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		BE41E48A1BDADD0C00A09049 /* BeaconManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeaconManager.swift; path = Controllers/BeaconManager.swift; sourceTree = "<group>"; };
 		BE5322021BDAED9700E4FB81 /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapVC.swift; path = ViewControllers/MapVC.swift; sourceTree = "<group>"; };
@@ -90,6 +95,7 @@
 		BEB8CC841BDBF14F0073FF18 /* five-stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "five-stars.png"; sourceTree = "<group>"; };
 		BEB8CC861BDBF1890073FF18 /* speaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speaker.png; sourceTree = "<group>"; };
 		BEB8CC881BDBFBD70073FF18 /* download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download.png; sourceTree = "<group>"; };
+		BEB8CC8A1BDC7E370073FF18 /* BeaconVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BeaconVC.swift; path = ViewControllers/BeaconVC.swift; sourceTree = "<group>"; };
 		BEB957291BDAD64000EC7815 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = ViewControllers/BaseViewController.swift; sourceTree = "<group>"; };
 		BEB9572C1BDAD66A00EC7815 /* NewsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsVC.swift; path = ViewControllers/NewsVC.swift; sourceTree = "<group>"; };
 		BEB9572E1BDAD67900EC7815 /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchVC.swift; path = ViewControllers/SearchVC.swift; sourceTree = "<group>"; };
@@ -146,8 +152,10 @@
 			children = (
 				BEB8CC881BDBFBD70073FF18 /* download.png */,
 				BEB8CC821BDBF0AF0073FF18 /* jon.png */,
+				BE25AB201BDC8448002404B9 /* estimote.png */,
 				BEB8CC861BDBF1890073FF18 /* speaker.png */,
 				7AE989DE1BDBCB6B0075209A /* logo.png */,
+				BE25AB221BDC85B3002404B9 /* play.jpg */,
 				BEB8CC841BDBF14F0073FF18 /* five-stars.png */,
 				7A6172721BDB7299008919A7 /* 12065615_10154230974098906_793892778809770643_n.jpg */,
 				7A6172741BDB7CC1008919A7 /* gPCjrIGykBe.jpg */,
@@ -256,6 +264,7 @@
 				BEB957341BDAD72900EC7815 /* ProfileVC.swift */,
 				BE5322021BDAED9700E4FB81 /* MapVC.swift */,
 				BED576C31BDB4BEB0049B646 /* TopVC.swift */,
+				BEB8CC8A1BDC7E370073FF18 /* BeaconVC.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -333,8 +342,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEB8CC891BDBFBD70073FF18 /* download.png in Resources */,
+				BE25AB231BDC85B3002404B9 /* play.jpg in Resources */,
 				BE53220A1BDAEFEC00E4FB81 /* LaunchScreen.storyboard in Resources */,
 				BEB8CC871BDBF1890073FF18 /* speaker.png in Resources */,
+				BE25AB211BDC8448002404B9 /* estimote.png in Resources */,
 				814C3ACB1B69877600E307BB /* Images.xcassets in Resources */,
 				7A6172751BDB7CC1008919A7 /* gPCjrIGykBe.jpg in Resources */,
 				BE41E4881BDAD9C100A09049 /* Storyboard.storyboard in Resources */,
@@ -433,6 +444,7 @@
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
 				BED576B81BDB074A0049B646 /* Constants.swift in Sources */,
 				BEB9572D1BDAD66A00EC7815 /* NewsVC.swift in Sources */,
+				BEB8CC8B1BDC7E370073FF18 /* BeaconVC.swift in Sources */,
 				BEB9572F1BDAD67900EC7815 /* SearchVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

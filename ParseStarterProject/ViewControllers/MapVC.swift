@@ -41,7 +41,6 @@ class MapVC: UIViewController {
         doneButton!.sizeToFit()
         doneButton!.titleEdgeInsets = UIEdgeInsetsMake(0, -doneButton!.imageView!.frame.size.width, 0, doneButton!.imageView!.frame.size.width)
         doneButton!.imageEdgeInsets = UIEdgeInsetsMake(0, doneButton!.titleLabel!.frame.size.width, 0, -doneButton!.titleLabel!.frame.size.width)
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -122,7 +121,7 @@ extension MapVC: MKMapViewDelegate {
         let pinAnnotaionView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "selected")
         pinAnnotaionView.animatesDrop = true
         pinAnnotaionView.image = UIImage(named: "location_map")
-        pinAnnotaionView.pinColor = MKPinAnnotationColor.Green
+        pinAnnotaionView.pinColor = MKPinAnnotationColor.Red
         pinAnnotaionView.enabled = false
         doneButton?.enabled = true
         return pinAnnotaionView

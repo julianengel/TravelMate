@@ -38,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let defaultACL = PFACL();
         customizeAppearance()
+        //configureTabBarAppearance()
         
         Parse.setApplicationId("Us4UivwQoKxsHuJCX38ysFu7UVAUFtBNdRlkl0kx",
             clientKey: "9ankNDZNa8LUlaU0QTy6F3JnX6BxAfyKAJxXMp73")
@@ -85,6 +86,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
     
+//    func configureTabBarAppearance() {
+//        if let tbVC = self.window?.rootViewController as? UITabBarController {
+//            UITabBar.appearance().tintColor = UIColor.whiteColor()
+//            
+//            let selectedImages = ["news", "search", "map", "add", "profil"]
+//            let items = tbVC.tabBar.items
+//            for (idx, tabBarItem) in items!.enumerate() {
+//                let selectedImage = UIImage(named: selectedImages[idx])
+//                tabBarItem.image = selectedImage?.imageWithRenderingMode(.AlwaysOriginal)
+//            }
+//            
+//        }
+//    }
 }
 
 func customizeAppearance() {
@@ -120,7 +134,12 @@ extension AppDelegate: BeaconManagerDelegate {
         case "2": break //sendLocalNotificationWithMessage("bb")
         case "3": break //sendLocalNotificationWithMessage("cc")
         case "4": break //sendLocalNotificationWithMessage("dd")
-        case "5": break //sendLocalNotificationWithMessage("ee")
+        case "5":
+            let storyboard = UIStoryboard(name: "Storyboard", bundle: nil)
+            let beaconVC = storyboard.instantiateViewControllerWithIdentifier("BeaconVC")
+            beaconVC.modalPresentationStyle = UIModalPresentationStyle.FullScreen
+            self.window?.rootViewController?.presentViewController(beaconVC, animated: true, completion: nil)
+            break //sendLocalNotificationWithMessage("ee")
         case "6": break //sendLocalNotificationWithMessage("ff")
         case "enterPieB": sendLocalNotificationWithMessage("You entered area with TravelVoice!")
         default: break
