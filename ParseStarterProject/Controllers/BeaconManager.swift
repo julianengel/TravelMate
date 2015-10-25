@@ -33,39 +33,61 @@ class BeaconManager: NSObject {
     let beaconMintCocktailJ = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: UUID)!, major: mintCocktailJ.major, minor: mintCocktailJ.minor, identifier: "mintJ")
     let beaconBlueberryPieJ = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: UUID)!, major: blueberryPieJ.major, minor: blueberryPieJ.minor, identifier: "blueberryJ")
     
-    weak var deleagte: BeaconManagerDelegate?
+    weak var delegate: BeaconManagerDelegate?
     
     func configureManager() {
         locationManager.delegate = self
-        
+        locationManager.requestAlwaysAuthorization()
+
         locationManager.startMonitoringForRegion(beaconIcyMarshmallowB)
         locationManager.startMonitoringForRegion(beaconMintCocktailB)
         locationManager.startMonitoringForRegion(beaconBlueberryPieB)
         
-        locationManager.startMonitoringForRegion(beaconIcyMarshmallowJ)
-        locationManager.startMonitoringForRegion(beaconMintCocktailJ)
-        locationManager.startMonitoringForRegion(beaconBlueberryPieJ)
+        locationManager.startRangingBeaconsInRegion(beaconIcyMarshmallowJ)
+        locationManager.startRangingBeaconsInRegion(beaconMintCocktailJ)
+        locationManager.startRangingBeaconsInRegion(beaconBlueberryPieJ)
     }
 }
 
 extension BeaconManager: CLLocationManagerDelegate {
+    
+    func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        if region == beaconBlueberryPieB {
+            delegate?.found("enterPieB")
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager, monitoringDidFailForRegion region: CLRegion?, withError error: NSError) {
+        print(error)
+    }
+    
+    func locationManager(manager: CLLocationManager, rangingBeaconsDidFailForRegion region: CLBeaconRegion, withError error: NSError) {
+        print(error)
+    }
+    
+    func locationManager(manager: CLLocationManager, didStartMonitoringForRegion region: CLRegion) {
+       // print("aa")
+    }
+    
     func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
+        //print(beacons)
         if beacons.count == 0 {
             return
         }
         for (_,element) in beacons.enumerate() {
-            if element.proximityUUID.UUIDString.lowercaseString == beaconIcyMarshmallowB.proximityUUID.UUIDString.lowercaseString && element.minor == beaconIcyMarshmallowB.minor && element.proximity == CLProximity.Immediate {
-                deleagte?.found("1")
-            } else if element.proximityUUID.UUIDString.lowercaseString == beaconMintCocktailB.proximityUUID.UUIDString.lowercaseString && element.minor == beaconMintCocktailB.minor && element.proximity == CLProximity.Immediate{
-                deleagte?.found("2")
-            }  else if element.proximityUUID.UUIDString.lowercaseString == beaconBlueberryPieB.proximityUUID.UUIDString.lowercaseString && element.minor == beaconBlueberryPieB.minor && element.proximity == CLProximity.Immediate {
-                deleagte?.found("3")
-            } else if element.proximityUUID.UUIDString.lowercaseString == beaconIcyMarshmallowJ.proximityUUID.UUIDString.lowercaseString && element.minor == beaconIcyMarshmallowJ.minor && element.proximity == CLProximity.Immediate {
-                deleagte?.found("4")
-            } else if element.proximityUUID.UUIDString.lowercaseString == beaconMintCocktailJ.proximityUUID.UUIDString.lowercaseString && element.minor == beaconMintCocktailJ.minor && element.proximity == CLProximity.Immediate{
-                deleagte?.found("5")
-            }  else if element.proximityUUID.UUIDString.lowercaseString == beaconBlueberryPieJ.proximityUUID.UUIDString.lowercaseString && element.minor == beaconBlueberryPieJ.minor && element.proximity == CLProximity.Immediate {
-                deleagte?.found("6")
+            if element.proximityUUID.UUIDString.lowercaseString == beaconIcyMarshmallowB.proximityUUID.UUIDString.lowercaseString && element.minor == beaconIcyMarshmallowB.minor {
+                delegate?.found("1")
+            }
+            else if element.proximityUUID.UUIDString.lowercaseString == beaconMintCocktailB.proximityUUID.UUIDString.lowercaseString && element.minor == beaconMintCocktailB.minor {
+                delegate?.found("2")
+            }  else if element.proximityUUID.UUIDString.lowercaseString == beaconBlueberryPieB.proximityUUID.UUIDString.lowercaseString && element.minor == beaconBlueberryPieB.minor {
+                delegate?.found("3")
+            } else if element.proximityUUID.UUIDString.lowercaseString == beaconIcyMarshmallowJ.proximityUUID.UUIDString.lowercaseString && element.minor == beaconIcyMarshmallowJ.minor {
+                delegate?.found("4")
+            } else if element.proximityUUID.UUIDString.lowercaseString == beaconMintCocktailJ.proximityUUID.UUIDString.lowercaseString && element.minor == beaconMintCocktailJ.minor {
+                delegate?.found("5")
+            }  else if element.proximityUUID.UUIDString.lowercaseString == beaconBlueberryPieJ.proximityUUID.UUIDString.lowercaseString && element.minor == beaconBlueberryPieJ.minor {
+                delegate?.found("6")
             }
         }
     }

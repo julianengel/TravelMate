@@ -29,6 +29,7 @@ class AddVC: BaseViewController {
     @IBOutlet var placePhoto: UIImageView!
     
     @IBOutlet weak var send: UIButton!
+    @IBOutlet weak var geo: UIButton!
     
     var meterTimer:NSTimer!
     
@@ -49,6 +50,22 @@ class AddVC: BaseViewController {
         checkHeadphones()
         configureTapGesturte()
         self.checkIfDataValid()
+
+        
+        send.layer.cornerRadius = 8
+        send.clipsToBounds = true
+
+        nameTextField.layer.cornerRadius = 8
+        nameTextField.clipsToBounds = true
+
+        languageButton.layer.cornerRadius = 8
+        languageButton.clipsToBounds = true
+
+        typeButton.layer.cornerRadius = 8
+        typeButton.clipsToBounds = true
+
+        geo.layer.cornerRadius = 8
+        geo.clipsToBounds = true
     }
     
     func updateAudioMeter(timer:NSTimer) {
@@ -63,7 +80,7 @@ class AddVC: BaseViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        appDelegate.topVC?.topImageView.image = UIImage(named: "AddVoicePoint")
+        appDelegate.topVC?.topImageView.image = UIImage(named: "Add voice point")
     }
     
     override func didReceiveMemoryWarning() {
@@ -107,7 +124,7 @@ class AddVC: BaseViewController {
             recordButton.setTitle("Pause", forState:.Normal)
             playButton.enabled = false
             stopButton.enabled = true
-            recordWithPermission(true)
+            recordWithPermission(true)            
             return
         }
         
@@ -160,9 +177,9 @@ class AddVC: BaseViewController {
         if let text = descriptionTextView.text {
             placeModel.placeDescription = text
         }
-        if let image = placePhoto.image {
-            placeModel.placeImage = image
-        }
+//        if let image = placePhoto.image {
+//            placeModel.placeImage = image
+//        }
         let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
         let filemanager:NSFileManager = NSFileManager()
         let files = filemanager.enumeratorAtPath(paths)
@@ -187,7 +204,10 @@ class AddVC: BaseViewController {
                 place["type"] = placeModel.type?.rawValue
                 place["language"] = placeModel.language?.rawValue
                 place["city"] = placeModel.city
-                
+                place["rating"] = 0
+                place["count"] = 0
+                let facebookCredentials = NSUserDefaults.standardUserDefaults()
+                place["fbID"] = facebookCredentials.objectForKey("fbID") as! String
                 
                 print(placeModel.name,placeModel.placeDescription,placeModel.location?.latitude,placeModel.location?.longitude,audioName,placeModel.type?.rawValue,placeModel.language?.rawValue,placeModel.city)
                 
@@ -196,6 +216,7 @@ class AddVC: BaseViewController {
                 audio["Name"] = audioName
                 audio["AudioData"] = pffile
                 audio.saveInBackground()
+                //return
             }
             else {
                 print("error while creating data from record")

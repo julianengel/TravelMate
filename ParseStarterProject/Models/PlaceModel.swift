@@ -22,7 +22,8 @@ class PlaceModel: NSObject, MKAnnotation {
     var language: Languages?
     var city: String?
     
-    var rating: Int?
+    var rating: Float?
+    var count: Int?
     
     var facebookID: String?
     

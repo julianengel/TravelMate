@@ -8,119 +8,69 @@
 
 import UIKit
 import Parse
+import FBSDKLoginKit
 
 class ProfileVC: BaseViewController {
-
+    
+    let facebookCredentials = NSUserDefaults.standardUserDefaults()
+    
     @IBOutlet weak var ppIV : UIImageView!
     @IBOutlet weak var nameLabel : UILabel!
-    @IBOutlet weak var mailLabel: UILabel!
+    
+    @IBOutlet weak var logOutButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let query = PFQuery(clasrsName: "Registered")
-//        query.whereKey("facebook", equalTo: PFUser.currentUser()!)
-//        let objects = query.findObjectsInBackground()
-        
-      
-//        print(objects)
-        ppIV.image = UIImage(imageLiteral: "gPCjrIGykBe.jpg")
-        
-        let query = PFQuery(className:"Registered")
-        query.whereKey("facebook", equalTo:PFUser.currentUser()!)
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?) -> Void in
-            
-            if error == nil {
-                // The find succeeded.
-                print("Successfully retrieved \(objects!.count) records.")
-                // Do something with the found objects
-                if let objects = objects as [PFObject]! {
-                    for object in objects {
-                        let name = object.objectForKey("name")
-                        let mail = object.objectForKey("email")
-                        self.mailLabel.text = mail as! String
-                        self.nameLabel.text = name as! String
-                        
-                        
-                        
-                        var staring = object.objectForKey("image") as! String
-                        print(staring)
-                        staring = staring.insert("s", ind: 4)
-                        print(staring)
-                        
-                        var imgURL: NSURL = NSURL(string: staring as! String)!
-                        let request: NSURLRequest = NSURLRequest(URL: imgURL)
-                        NSURLConnection.sendAsynchronousRequest(
-                            request, queue: NSOperationQueue.mainQueue(),
-                            completionHandler: {(response,data,error) -> Void in
-                                if error == nil {
-                                    self.ppIV.image = UIImage(data: data!)
-                                }
-                        })
-                        
-//                        if let data = NSData(contentsOfURL: string as! NSURL) {
-//                            let my_image = UIImage(data: data)
-//                            print(my_image)
-//                        }
+        nameLabel.text = facebookCredentials.objectForKey("name") as! NSString as String
 
-                        
-                    }
-            } else {
-                // Log details of the failure
-                print("Error: \(error!) \(error!.userInfo)")
-            }
-        }
-        }
+        returnUserProfileImage(facebookCredentials.objectForKey("fbID") as! NSString as String)
         
-       
+        nameLabel.layer.cornerRadius = 8
+        nameLabel.clipsToBounds = true
         
+        logOutButton.layer.cornerRadius = 8
+        logOutButton.clipsToBounds = true
         
-//
-//        userImageFile.getDataInBackgroundWithBlock( {(imageData, error) -> Void in
-//            if (error == nil) {
-//                let image = UIImage(data:imageData!)
-//                self.ppIV.image = image
-//            }
-//        })
-        
-        makeProfilePic(ppIV)
-        
-    
-
-    
-    
-
-        // Do any additional setup after loading the view.
     }
     
+    func returnUserProfileImage(fbID: NSString)
+    {
+        let str = "https://graph.facebook.com/\(fbID)/picture?type=large"
+        let imageURL: NSURL = NSURL(string: str)!
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            let data = NSData(contentsOfURL: imageURL)
+            let image = UIImage(data: data!)
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.ppIV.image = image
+                self.ppIV.layer.cornerRadius = self.ppIV.frame.size.width/2
+                self.ppIV.clipsToBounds = true
+            });
+        };
+    }
     
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
     override func viewWillAppear(animated: Bool) {
-        appDelegate.topVC?.topImageView.image = UIImage(named: "profiletext")
-
+        appDelegate.topVC?.topImageView.image = UIImage(named: "Profile-1")
     }
     
     @IBAction func logOut(sender: AnyObject){
-        
-        PFUser.logOut()
+        let loginManager = FBSDKLoginManager()
+        loginManager.logOut()
         print("Logged the user out")
-        
         let storyboard = UIStoryboard(name: "Storyboard", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("logIn") as! UIViewController
+        let vc = storyboard.instantiateViewControllerWithIdentifier("logIn")
         self.presentViewController(vc, animated: true, completion: nil)
-        
-        
     }
     
     
-    func makeProfilePic(image: UIImageView){
+    func makeProfilePic(image: UIImageView)
+    {
         
         
         image.layer.cornerRadius = image.frame.size.width / 2
@@ -130,11 +80,3 @@ class ProfileVC: BaseViewController {
         image.layer.borderWidth = 3
     }
 }
-
-
-extension String {
-    func insert(string:String,ind:Int) -> String {
-        return  String(self.characters.prefix(ind)) + string + String(self.characters.suffix(self.characters.count-ind))
-    }
-}
-

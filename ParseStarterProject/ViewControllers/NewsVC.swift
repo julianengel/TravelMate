@@ -37,7 +37,7 @@ class NewsVC: BaseViewController {
     }
 
     override func viewWillAppear(animated: Bool) {
-        appDelegate.topVC?.topImageView.image = UIImage(named: "Searchingresults")
+        appDelegate.topVC?.topImageView.image = UIImage(named: "A map")
         networkingManager.downlaodAllPlaces()
     }
     

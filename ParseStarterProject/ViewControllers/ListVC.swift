@@ -8,6 +8,8 @@
 
 import UIKit
 import AVFoundation
+import MGSwipeTableCell
+import Parse
 
 class ListVC: BaseViewController {
     
@@ -18,6 +20,7 @@ class ListVC: BaseViewController {
     
     weak var tableView: UITableView!
     var player: AVAudioPlayer?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +37,7 @@ class ListVC: BaseViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        appDelegate.topVC?.topImageView.image = UIImage(named: "famousetours")
+        appDelegate.topVC?.topImageView.image = UIImage(named: "Trending tours")
         networkingManager.downlaodAllPlaces()
     }
     
@@ -64,6 +67,90 @@ extension ListVC: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellsIdentifiers.placeTVC , forIndexPath: indexPath) as! PlaceTVC
         cell.configureCell(places[indexPath.row])
+        
+        cell.rightButtons = [
+            MGSwipeButton(title: "", icon: UIImage(named: "piec"), backgroundColor: CustomColors.blue, callback: { (_) -> Bool in
+                let queue = PFQuery(className: "Places")
+                queue.whereKey("audioName", equalTo: self.places[indexPath.row].audioFileName)
+                queue.getFirstObjectInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
+                    if error == nil {
+                        var count = object?.objectForKey("count") as! Int
+                        var rating = object?.objectForKey("rating") as! Float
+                        count++
+                        rating = rating + 5
+                        object!["count"] = count
+                        object!["rating"] = rating
+                        object!.saveInBackground()
+                    }
+                })
+                return true
+            })
+            ,MGSwipeButton(title: "", icon: UIImage(named: "cztery"), backgroundColor: CustomColors.blue, callback: { (_) -> Bool in
+                let queue = PFQuery(className: "Places")
+                queue.whereKey("audioName", equalTo: self.places[indexPath.row].audioFileName)
+                queue.getFirstObjectInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
+                    if error == nil {
+                        var count = object?.objectForKey("count") as! Int
+                        var rating = object?.objectForKey("rating") as! Float
+                        count++
+                        rating = rating + 4
+                        object!["count"] = count
+                        object!["rating"] = rating
+                        object!.saveInBackground()
+                    }
+                })
+                return true
+            })
+            ,MGSwipeButton(title: "", icon: UIImage(named: "trzy"), backgroundColor: CustomColors.blue, callback: { (_) -> Bool in
+                let queue = PFQuery(className: "Places")
+                queue.whereKey("audioName", equalTo: self.places[indexPath.row].audioFileName)
+                queue.getFirstObjectInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
+                    if error == nil {
+                        var count = object?.objectForKey("count") as! Int
+                        var rating = object?.objectForKey("rating") as! Float
+                        count++
+                        rating = rating + 3
+                        object!["count"] = count
+                        object!["rating"] = rating
+                        object!.saveInBackground()
+                    }
+                })
+                return true
+            })
+            ,MGSwipeButton(title: "", icon: UIImage(named: "dwa"), backgroundColor: CustomColors.blue, callback: { (_) -> Bool in
+                let queue = PFQuery(className: "Places")
+                queue.whereKey("audioName", equalTo: self.places[indexPath.row].audioFileName)
+                queue.getFirstObjectInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
+                    if error == nil {
+                        var count = object?.objectForKey("count") as! Int
+                        var rating = object?.objectForKey("rating") as! Float
+                        count++
+                        rating = rating + 2
+                        object!["count"] = count
+                        object!["rating"] = rating
+                        object!.saveInBackground()
+                    }
+                })
+                return true
+            })
+            ,MGSwipeButton(title: "", icon: UIImage(named: "jeden"), backgroundColor: CustomColors.blue, callback: { (_) -> Bool in
+                let queue = PFQuery(className: "Places")
+                queue.whereKey("audioName", equalTo: self.places[indexPath.row].audioFileName)
+                queue.getFirstObjectInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
+                    if error == nil {
+                        var count = object?.objectForKey("count") as! Int
+                        var rating = object?.objectForKey("rating") as! Float
+                        count++
+                        rating = rating + 1
+                        object!["count"] = count
+                        object!["rating"] = rating
+                        object!.saveInBackground()
+                    }
+                })
+                return true
+            })]
+        cell.rightSwipeSettings.transition = MGSwipeTransition.Drag
+        
         //print(places[0].name)
         //cell.selectionStyle = UITableViewCellSelectionStyle.None
         return cell

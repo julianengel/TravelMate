@@ -50,9 +50,6 @@ class MapVC: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        appDelegate.topVC?.topImageView.image = UIImage(named: "recordARout")
-        mapView.removeAnnotations(mapView.annotations)
-
     }
     
     func congifureLongPress() {

@@ -36,19 +36,18 @@ class NetworkingManager: NSObject {
                     place.location = CLLocationCoordinate2DMake(latitude,longitude)
                     
                     let type = element.objectForKey("type") as! Int
-                    print(type)
                     place.type = Types(rawValue: type)
                     
                     let language = element.objectForKey("language") as! Int
-                    print(language)
                     place.language = Languages(rawValue: language)
                     
+                    place.rating = element.objectForKey("rating") as? Float
+                    place.count = element.objectForKey("count") as? Int
                     
                     place.city = element.objectForKey("city") as? String
                     
-                    if let rating = element.objectForKey("rating") as? Int {
-                        place.rating = rating
-                    }
+                    place.facebookID = element.objectForKey("fbID") as? String
+
                     array.append(place)
                     
                 }
@@ -96,20 +95,20 @@ class NetworkingManager: NSObject {
                         let longitude: Double = element.objectForKey("longitude") as! Double
                         place.location = CLLocationCoordinate2DMake(latitude,longitude)
                         
-                        
                         let type = element.objectForKey("type") as! Int
-                        print(type)
                         place.type? = Types(rawValue: type)!
                         
                         let language = element.objectForKey("language") as! Int
-                        print(language)
                         place.language? = Languages(rawValue: language)!
                         
                         place.city = element.objectForKey("city") as? String
                         
-                        if let rating = element.objectForKey("rating") as? Int {
-                            place.rating = rating
-                        }
+                        place.facebookID = element.objectForKey("fbID") as? String
+                        
+                        place.rating = element.objectForKey("rating") as? Float
+                        place.count = element.objectForKey("count") as? Int
+                        
+
                         array.append(place)
                     }
                     self.delegate?.parsingPlacesCompleted!(array)

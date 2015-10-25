@@ -7,29 +7,67 @@
 * of patent rights can be found in the PATENTS file in the same directory.
 */
 
+
 import UIKit
 import Parse
+import FBSDKLoginKit
+import FBSDKCoreKit
 
 
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        let user = PFUser()
-        user.username = "my name"
-        user.password = "my pass"
-        user.email = "email@example.com"
-        
-        // other fields can be set if you want to save more information
-        user["phone"] = "650-555-0000"
+class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
-            user.signUpInBackground()
-        
-                super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    let facebookCredentials = NSUserDefaults.standardUserDefaults()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        if FBSDKAccessToken.currentAccessToken() == nil{
+            print("No One Logged In")
+        } else {
+            print("Someone is logged in")
+            self.performSegueWithIdentifier("LogInSegue", sender: self)
+        }
+
+        let loginButton = FBSDKLoginButton()
+        loginButton.readPermissions = ["public_profile","email","user_friends"]
+        loginButton.center = self.view.center
+        loginButton.delegate = self
+        self.view.addSubview(loginButton)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func newRule(){
+        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"name, email"])
+        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+            
+            if ((error) != nil) {
+                print("Error: \(error)")
+            }
+            else {
+                print("fetched user: \(result)")
+                let userEmail : NSString = result.valueForKey("email") as! NSString
+                self.facebookCredentials.setObject(userEmail, forKey: "mail")
+                let userName : NSString = result.valueForKey("name") as! NSString
+                self.facebookCredentials.setObject(userName, forKey: "name")
+                let fbID : NSString = result.valueForKey("id") as! NSString
+                self.facebookCredentials.setObject(fbID, forKey: "fbID")
+                self.performSegueWithIdentifier("LogInSegue", sender: self)
+            }
+        })
+    }
+    
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!)
+    {
+        if error == nil {
+            print("Login complete.")
+            newRule()
+            self.performSegueWithIdentifier("LogInSegue", sender: self)
+        }
+        else {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+        print("User logged out...")
     }
 }

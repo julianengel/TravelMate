@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MGSwipeTableCell
 
-class PlaceTVC: UITableViewCell {
+class PlaceTVC: MGSwipeTableCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     
@@ -19,6 +20,8 @@ class PlaceTVC: UITableViewCell {
     
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var languageLabel: UILabel!
+    
+    @IBOutlet weak var averageImageView: UIImageView!
     
     var downloaded: Bool = false
     var audioData: NSData?
@@ -36,12 +39,37 @@ class PlaceTVC: UITableViewCell {
     }
     
     func configureCell(place: PlaceModel) {
-        jon.layer.cornerRadius = jon.frame.size.width/2
-        jon.clipsToBounds = false
         nameLabel.text = place.name
         
         print(place)
         typeLabel.text = Constatnts.setType(place.type!)
         languageLabel.text = Constatnts.setLanguage(place.language!)
+        
+        let str = "https://graph.facebook.com/\(place.facebookID!)/picture?type=large"
+        print(str)
+        let imageURL: NSURL = NSURL(string: str)!
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            let data = NSData(contentsOfURL: imageURL)
+            let image = UIImage(data: data!)
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.jon.image = image
+                self.jon.layer.cornerRadius = self.jon.frame.size.width/2
+                self.jon.clipsToBounds = true
+            });
+        };
+        let rating = place.rating!
+        let count = Float(place.count!)
+        let average = rating/count
+        if average >= 4.5 {
+            averageImageView.image = UIImage(named: "star-5")
+        } else if (average < 4.5 && average >= 3.5) {
+            averageImageView.image = UIImage(named: "star-4")
+        } else if (average < 3.5 && average >= 2.5) {
+            averageImageView.image = UIImage(named: "star-3")
+        }  else if (average < 2.5 && average >= 1.5) {
+            averageImageView.image = UIImage(named: "star-2")
+        } else {
+            averageImageView.image = UIImage(named: "star-1")
+        }
     }
 }

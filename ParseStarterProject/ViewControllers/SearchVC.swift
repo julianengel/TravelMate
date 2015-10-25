@@ -50,7 +50,7 @@ class SearchVC: BaseViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        appDelegate.topVC?.topImageView.image = UIImage(named: "SearchYourTour")
+        appDelegate.topVC?.topImageView.image = UIImage(named: "Search your tour")
     }
 
     // MARK: TapGestureRecognizer functions

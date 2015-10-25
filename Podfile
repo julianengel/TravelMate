@@ -5,4 +5,5 @@ pod 'ParseUI'
 pod 'Parse'
 pod 'MBProgressHUD'
 pod 'ParseFacebookUtilsV4'
+pod 'MGSwipeTableCell'
 end
